@@ -1,6 +1,6 @@
-package com.example.WiVaServer.model;
+package com.example.WiVaServer.user.model;
 
-import com.example.WiVaServer.model.audit.DateAudit;
+import com.example.WiVaServer.user.model.audit.DateAudit;
 import org.hibernate.annotations.NaturalId;
 import javax.persistence.*;
 import javax.validation.constraints.Email;

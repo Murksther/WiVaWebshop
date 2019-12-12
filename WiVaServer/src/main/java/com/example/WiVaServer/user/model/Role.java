@@ -1,4 +1,4 @@
-package com.example.WiVaServer.model;
+package com.example.WiVaServer.user.model;
 
 import org.hibernate.annotations.NaturalId;
 import javax.persistence.*;

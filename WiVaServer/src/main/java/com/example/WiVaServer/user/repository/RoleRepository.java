@@ -1,7 +1,7 @@
-package com.example.WiVaServer.repository;
+package com.example.WiVaServer.user.repository;
 
-import com.example.WiVaServer.model.Role;
-import com.example.WiVaServer.model.RoleName;
+import com.example.WiVaServer.user.model.Role;
+import com.example.WiVaServer.user.model.RoleName;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;

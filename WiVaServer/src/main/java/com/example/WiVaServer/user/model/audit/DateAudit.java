@@ -1,4 +1,4 @@
-package com.example.WiVaServer.model.audit;
+package com.example.WiVaServer.user.model.audit;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;

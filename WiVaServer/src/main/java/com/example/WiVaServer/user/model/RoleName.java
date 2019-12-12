@@ -1,4 +1,4 @@
-package com.example.WiVaServer.model;
+package com.example.WiVaServer.user.model;
 
 public enum  RoleName {
     ROLE_USER,

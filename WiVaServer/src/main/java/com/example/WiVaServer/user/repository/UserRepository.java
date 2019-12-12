@@ -1,6 +1,6 @@
-package com.example.WiVaServer.repository;
+package com.example.WiVaServer.user.repository;
 
-import com.example.WiVaServer.model.User;
+import com.example.WiVaServer.user.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.List;
