@@ -1,8 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="8730f17b-506b-4d88-a5d2-6065f4ba6ebb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/WiVa Apps.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/controller/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/model/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/payload/ProductRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/payload/ProductResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/repository/ProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/service/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/util/ModelMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wivaclient/src/common/LoadingIndicator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wivaclient/src/common/NotFound.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wivaclient/src/common/NotFound.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wivaclient/src/common/PrivateRoute.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wivaclient/src/common/ServerError.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wivaclient/src/common/ServerError.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wivaclient/src/user/login/Login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wivaclient/src/user/login/Login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wivaclient/src/user/profile/Profile.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wivaclient/src/user/profile/Profile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wivaclient/src/user/signup/Signup.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wivaclient/src/user/signup/Signup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wivaclient/src/util/APIUtils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wivaclient/src/util/Colors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wivaclient/src/util/Helpers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wivaclient/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wivaclient/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wivaclient/public/apple-icon-152x152.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wivaclient/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wivaclient/src/app/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/app/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wivaclient/src/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/app/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wivaclient/src/common/AppHeader.css" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/common/AppHeader.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wivaclient/src/common/AppHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/common/AppHeader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wivaclient/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wivaclient/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,19 +70,30 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Users\Markv\.m2\wrapper\dists\apache-maven-3.6.2-bin\795eh28tki48bv3l67maojf0ra\apache-maven-3.6.2" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="1Ur6kgYu0Drxp9A4Dh3B612nP8J" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Desktop/EPS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -56,18 +107,27 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.applicationServers" />
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WiVaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="WiVaServer" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.WiVaServer.WiVaServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -82,6 +142,14 @@
       <workItem from="1576102721862" duration="3247000" />
       <workItem from="1576155561144" duration="12270000" />
       <workItem from="1576415585696" duration="136000" />
+      <workItem from="1600599365023" duration="2360000" />
+      <workItem from="1600617759607" duration="627000" />
+      <workItem from="1600755968696" duration="526000" />
+      <workItem from="1601367544645" duration="124000" />
+      <workItem from="1602061774685" duration="849000" />
+      <workItem from="1602317108735" duration="2470000" />
+      <workItem from="1602663106285" duration="7392000" />
+      <workItem from="1602947693322" duration="7654000" />
     </task>
     <task id="LOCAL-00001" summary="Added User Role, and Dependencies used in the future">
       <created>1576104646696</created>
@@ -115,7 +183,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added User Role, and Dependencies used in the future" />
@@ -125,59 +193,69 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added extra payloads to check availability of usernames, email etc. Also added controller to handle this" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1475" y="-902" key="#Assign_Data_Sources" timestamp="1576169538296">
-      <screen x="923" y="-1080" width="1920" height="1040" />
+    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1602668154445">
+      <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state x="1475" y="-902" key="#Assign_Data_Sources/0.0.2194.1194/923.-1080.1920.1040@923.-1080.1920.1040" timestamp="1576169538296" />
-    <state x="1538" y="-902" key="#Deployment" timestamp="1576104606984">
-      <screen x="923" y="-1080" width="1920" height="1040" />
+    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser/-921.1080.2194.1216/0.0.1920.1048@0.0.1920.1048" timestamp="1602668154445" />
+    <state x="533" y="526" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1600599386642">
+      <screen x="0" y="0" width="2194" height="1202" />
     </state>
-    <state x="1538" y="-902" key="#Deployment/0.0.2194.1194/923.-1080.1920.1040@923.-1080.1920.1040" timestamp="1576104606984" />
-    <state x="1475" y="-902" key="#Notifications" timestamp="1576104812104">
-      <screen x="923" y="-1080" width="1920" height="1040" />
+    <state x="533" y="526" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.2194.1202/823.-1080.1920.1050@0.0.2194.1202" timestamp="1600599386642" />
+    <state x="1663" y="-800" key="FileChooserDialogImpl" timestamp="1601367667606">
+      <screen x="923" y="-1080" width="1920" height="1050" />
     </state>
-    <state x="1475" y="-902" key="#Notifications/0.0.2194.1194/923.-1080.1920.1040@923.-1080.1920.1040" timestamp="1576104812104" />
-    <state x="1475" y="-902" key="#Project_Structure" timestamp="1576102796387">
-      <screen x="923" y="-1080" width="1920" height="1040" />
+    <state x="1663" y="-800" key="FileChooserDialogImpl/0.0.2194.1202/923.-1080.1920.1050@923.-1080.1920.1050" timestamp="1601367667606" />
+    <state width="1877" height="352" key="GridCell.Tab.0.bottom" timestamp="1600609317060">
+      <screen x="823" y="-1080" width="1920" height="1050" />
     </state>
-    <state x="1475" y="-902" key="#Project_Structure/0.0.2194.1194/923.-1080.1920.1040@923.-1080.1920.1040" timestamp="1576102796387" />
-    <state x="1563" y="-833" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1576102545621">
-      <screen x="923" y="-1080" width="1920" height="1040" />
+    <state width="1877" height="352" key="GridCell.Tab.0.bottom/0.0.2194.1202/823.-1080.1920.1050@823.-1080.1920.1050" timestamp="1600609317060" />
+    <state width="1877" height="352" key="GridCell.Tab.0.center" timestamp="1600609317060">
+      <screen x="823" y="-1080" width="1920" height="1050" />
     </state>
-    <state x="1563" y="-833" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.2194.1194/923.-1080.1920.1040@923.-1080.1920.1040" timestamp="1576102545621" />
-    <state x="1334" y="-635" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1576168453995">
-      <screen x="923" y="-1080" width="1920" height="1040" />
+    <state width="1877" height="352" key="GridCell.Tab.0.center/0.0.2194.1202/823.-1080.1920.1050@823.-1080.1920.1050" timestamp="1600609317060" />
+    <state width="1877" height="352" key="GridCell.Tab.0.left" timestamp="1600609317060">
+      <screen x="823" y="-1080" width="1920" height="1050" />
     </state>
-    <state x="1334" y="-635" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.2194.1194/923.-1080.1920.1040@923.-1080.1920.1040" timestamp="1576168453995" />
-    <state x="1357" y="-966" width="1405" height="812" key="CommitChangelistDialog2" timestamp="1576176397843">
-      <screen x="923" y="-1080" width="1920" height="1040" />
+    <state width="1877" height="352" key="GridCell.Tab.0.left/0.0.2194.1202/823.-1080.1920.1050@823.-1080.1920.1050" timestamp="1600609317060" />
+    <state width="1877" height="352" key="GridCell.Tab.0.right" timestamp="1600609317060">
+      <screen x="823" y="-1080" width="1920" height="1050" />
     </state>
-    <state x="1357" y="-966" width="1405" height="812" key="CommitChangelistDialog2/0.0.2194.1194/923.-1080.1920.1040@923.-1080.1920.1040" timestamp="1576176397843" />
-    <state x="998" y="-1056" key="DiffContextDialog" timestamp="1576105117756">
-      <screen x="923" y="-1080" width="1920" height="1040" />
+    <state width="1877" height="352" key="GridCell.Tab.0.right/0.0.2194.1202/823.-1080.1920.1050@823.-1080.1920.1050" timestamp="1600609317060" />
+    <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1600609327455">
+      <screen x="823" y="-1080" width="1920" height="1050" />
     </state>
-    <state x="998" y="-1056" key="DiffContextDialog/0.0.2194.1194/923.-1080.1920.1040@923.-1080.1920.1040" timestamp="1576105117756" />
-    <state x="1749" y="-806" key="FileChooserDialogImpl" timestamp="1576415699195">
-      <screen x="1009" y="-1080" width="1920" height="1040" />
+    <state width="1877" height="352" key="GridCell.Tab.1.bottom/0.0.2194.1202/823.-1080.1920.1050@823.-1080.1920.1050" timestamp="1600609327455" />
+    <state width="1877" height="352" key="GridCell.Tab.1.center" timestamp="1600609327455">
+      <screen x="823" y="-1080" width="1920" height="1050" />
     </state>
-    <state x="1749" y="-806" key="FileChooserDialogImpl/0.0.2194.1194/1009.-1080.1920.1040@1009.-1080.1920.1040" timestamp="1576415699195" />
-    <state x="1663" y="-806" key="FileChooserDialogImpl/0.0.2194.1194/923.-1080.1920.1040@923.-1080.1920.1040" timestamp="1576102581842" />
-    <state x="1475" y="-828" key="Vcs.Push.Dialog.v2" timestamp="1576176414370">
-      <screen x="923" y="-1080" width="1920" height="1040" />
+    <state width="1877" height="352" key="GridCell.Tab.1.center/0.0.2194.1202/823.-1080.1920.1050@823.-1080.1920.1050" timestamp="1600609327455" />
+    <state width="1877" height="352" key="GridCell.Tab.1.left" timestamp="1600609327455">
+      <screen x="823" y="-1080" width="1920" height="1050" />
     </state>
-    <state x="1475" y="-828" key="Vcs.Push.Dialog.v2/0.0.2194.1194/923.-1080.1920.1040@923.-1080.1920.1040" timestamp="1576176414370" />
-    <state x="1665" y="-737" key="com.intellij.ide.util.TipDialog" timestamp="1576415617314">
-      <screen x="1009" y="-1080" width="1920" height="1040" />
+    <state width="1877" height="352" key="GridCell.Tab.1.left/0.0.2194.1202/823.-1080.1920.1050@823.-1080.1920.1050" timestamp="1600609327455" />
+    <state width="1877" height="352" key="GridCell.Tab.1.right" timestamp="1600609327455">
+      <screen x="823" y="-1080" width="1920" height="1050" />
     </state>
-    <state x="1665" y="-737" key="com.intellij.ide.util.TipDialog/0.0.2194.1194/1009.-1080.1920.1040@1009.-1080.1920.1040" timestamp="1576415617314" />
-    <state x="1579" y="-737" key="com.intellij.ide.util.TipDialog/0.0.2194.1194/923.-1080.1920.1040@923.-1080.1920.1040" timestamp="1576156194059" />
-    <state x="1351" y="-986" key="new project wizard" timestamp="1576415719334">
-      <screen x="1009" y="-1080" width="1920" height="1040" />
+    <state width="1877" height="352" key="GridCell.Tab.1.right/0.0.2194.1202/823.-1080.1920.1050@823.-1080.1920.1050" timestamp="1600609327455" />
+    <state width="1877" height="352" key="GridCell.Tab.2.bottom" timestamp="1600609316730">
+      <screen x="823" y="-1080" width="1920" height="1050" />
     </state>
-    <state x="1351" y="-986" key="new project wizard/0.0.2194.1194/1009.-1080.1920.1040@1009.-1080.1920.1040" timestamp="1576415719334" />
-    <state x="1366" y="-878" key="spring file set editor" timestamp="1576102780845">
-      <screen x="923" y="-1080" width="1920" height="1040" />
+    <state width="1877" height="352" key="GridCell.Tab.2.bottom/0.0.2194.1202/823.-1080.1920.1050@823.-1080.1920.1050" timestamp="1600609316730" />
+    <state width="1877" height="352" key="GridCell.Tab.2.center" timestamp="1600609316730">
+      <screen x="823" y="-1080" width="1920" height="1050" />
     </state>
-    <state x="1366" y="-878" key="spring file set editor/0.0.2194.1194/923.-1080.1920.1040@923.-1080.1920.1040" timestamp="1576102780845" />
+    <state width="1877" height="352" key="GridCell.Tab.2.center/0.0.2194.1202/823.-1080.1920.1050@823.-1080.1920.1050" timestamp="1600609316730" />
+    <state width="1877" height="352" key="GridCell.Tab.2.left" timestamp="1600609316730">
+      <screen x="823" y="-1080" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.2.left/0.0.2194.1202/823.-1080.1920.1050@823.-1080.1920.1050" timestamp="1600609316730" />
+    <state width="1877" height="352" key="GridCell.Tab.2.right" timestamp="1600609316730">
+      <screen x="823" y="-1080" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.2.right/0.0.2194.1202/823.-1080.1920.1050@823.-1080.1920.1050" timestamp="1600609316730" />
+    <state x="1335" y="-826" width="895" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1600609342830">
+      <screen x="823" y="-1080" width="1920" height="1050" />
+    </state>
+    <state x="1335" y="-826" width="895" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.2194.1202/823.-1080.1920.1050@823.-1080.1920.1050" timestamp="1600609342830" />
   </component>
 </project>
