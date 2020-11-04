@@ -24,7 +24,7 @@ public class ProductService {
         product.setName(productRequest.getName());
         product.setDescription(productRequest.getDescription());
         product.setUsedMaterial(productRequest.getUsedMaterial());
-        product.setAmountAvailable(productRequest.getAmountAvailable());
+        product.setAvailableUnits(productRequest.getAvailableUnits());
         product.setPrice(productRequest.getPrice());
 
         return productRepository.save(product);

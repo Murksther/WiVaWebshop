@@ -71,3 +71,11 @@ export function getUserProfile(username) {
         method: 'GET'
     });
 }
+
+export function createProduct(productData) {
+    return request({
+        url: API_BASE_URL + "/products",
+        method: 'POST',
+        body: JSON.stringify(productData)
+    });
+}

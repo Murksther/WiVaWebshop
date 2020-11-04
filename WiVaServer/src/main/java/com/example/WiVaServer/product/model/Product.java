@@ -4,17 +4,18 @@ import com.example.WiVaServer.user.model.audit.UserDateAudit;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "products")
 public class Product extends UserDateAudit {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) int id;
-    @NotBlank @Size(max = 200) private String name;
+    @NotBlank @Size(max = 50) private String name;
     private String description;
     private String usedMaterial;
-    @NotBlank private int amountAvailable;
-    @NotBlank private double price; // price is in cents
+    @NotNull  private int availableUnits;
+    @NotNull private double price;
 
     public int getId() { return id;}
     public void setId(int id) { this.id = id;}
@@ -24,8 +25,8 @@ public class Product extends UserDateAudit {
     public void setDescription(String description) { this.description = description;}
     public String getUsedMaterial() { return usedMaterial;}
     public void setUsedMaterial(String usedMaterial) { this.usedMaterial = usedMaterial;}
-    public int getAmountAvailable() { return amountAvailable;}
-    public void setAmountAvailable(int amountAvailable) { this.amountAvailable = amountAvailable;}
+    public int getAvailableUnits() { return availableUnits;}
+    public void setAvailableUnits(int availableUnits) { this.availableUnits = availableUnits;}
     public double getPrice() { return price;}
     public void setPrice(double price) { this.price = price;}
 

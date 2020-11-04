@@ -37,7 +37,7 @@ public class ProductController {
 
     @GetMapping("/{productId}")
     public ProductResponse getProductById(@CurrentUser UserPrincipal currentUser,
-                                          @PathVariable int pollId) {
-        return productService.getProductById(pollId, currentUser);
+                                          @PathVariable int productId) {
+        return productService.getProductById(productId, currentUser);
     }
 }

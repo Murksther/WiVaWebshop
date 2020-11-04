@@ -1,0 +1,43 @@
+.new-product-container {
+    max-width: 520px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.create-product-form-button {
+    width: 100%;
+}
+
+.create-product-form-button[disabled], .create-product-form-button[disabled]:hover, .create-product-form-button[disabled]:focus {
+    opacity: 0.6;
+    color: #fff;
+    background-color: #1890ff;
+    border-color: #1890ff;
+}
+
+
+.dynamic-delete-button {
+    cursor: pointer;
+    position: relative;
+    top: 4px;
+    font-size: 24px;
+    color: #999;
+    transition: all .3s;
+}
+
+.dynamic-delete-button:hover {
+    color: #777;
+}
+
+.dynamic-delete-button[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.product-form-row {
+    margin-bottom: 20px;
+}
+
+.product-form-row input, .product-form-row textarea {
+    margin-bottom: 4px;
+}

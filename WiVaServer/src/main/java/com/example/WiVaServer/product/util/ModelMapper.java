@@ -13,7 +13,7 @@ public class ModelMapper {
         productResponse.setDescription(product.getDescription());
         productResponse.setUsedMaterial(product.getUsedMaterial());
         productResponse.setPrice(product.getPrice());
-        productResponse.setAmountAvailable(product.getAmountAvailable());
+        productResponse.setAvailableUnits(product.getAvailableUnits());
 
         return productResponse;
     }

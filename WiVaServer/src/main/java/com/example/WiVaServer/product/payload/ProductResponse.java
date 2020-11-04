@@ -5,7 +5,7 @@ public class ProductResponse {
     private String name;
     private String description;
     private String usedMaterial;
-    private int amountAvailable;
+    private int availableUnits;
     private double price;
 
     public int getId() { return id;}
@@ -16,8 +16,8 @@ public class ProductResponse {
     public void setDescription(String description) { this.description = description;}
     public String getUsedMaterial() { return usedMaterial;}
     public void setUsedMaterial(String usedMaterial) { this.usedMaterial = usedMaterial;}
-    public int getAmountAvailable() { return amountAvailable;}
-    public void setAmountAvailable(int amountAvailable) { this.amountAvailable = amountAvailable;}
+    public int getAvailableUnits() { return availableUnits;}
+    public void setAvailableUnits(int availableUnits) { this.availableUnits = availableUnits;}
     public double getPrice() { return price;}
     public void setPrice(double price) { this.price = price;}
 }
