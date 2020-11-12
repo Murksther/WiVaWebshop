@@ -40,10 +40,10 @@ public class ProductController {
                 .body(new ApiResponse(true, "Product successfully added"));
     }
     @GetMapping
-    public PagedResponse<ProductResponse> getProducts(
+    public PagedResponse<ProductResponse> getAvailableProducts(
             @RequestParam(value = "page", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) int page,
             @RequestParam(value = "size", defaultValue = AppConstants.DEFAULT_PAGE_SIZE) int size) {
-        return productService.getAllProducts(page, size);
+        return productService.getAvailableProducts(page, size);
     }
 
     @GetMapping("/{productId}")
@@ -52,3 +52,4 @@ public class ProductController {
         return productService.getProductById(productId, currentUser);
     }
 }
+

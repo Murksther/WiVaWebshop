@@ -68,6 +68,29 @@ public class ProductService {
         return new PagedResponse<>(productResponses, products.getNumber(),
                 products.getSize(), products.getTotalElements(), products.getTotalPages(), products.isLast());
     }
+    public PagedResponse<ProductResponse> getAvailableProducts(int page, int size) {
+        validatePageNumberAndSize(page, size);
+
+        // Retrieve Products
+        Pageable pageable = PageRequest.of(page, size, Sort.Direction.DESC, "createdAt");
+        Page<Product> products = productRepository.findAvailableProducts(pageable);
+
+        if(products.getNumberOfElements() == 0) {
+            return new PagedResponse<>(Collections.emptyList(), products.getNumber(),
+                    products.getSize(), products.getTotalElements(), products.getTotalPages(), products.isLast());
+        }
+
+        // Map Products to ProductResponses
+        List<Integer> productIds = products.map(Product::getId).getContent();
+
+        List<ProductResponse> productResponses = products.map(product -> {
+            return ModelMapper.mapProductToProductReponse(product);
+        }).getContent();
+
+        return new PagedResponse<>(productResponses, products.getNumber(),
+                products.getSize(), products.getTotalElements(), products.getTotalPages(), products.isLast());
+    }
+
     private void validatePageNumberAndSize(int page, int size) {
         if(page < 0) {
             throw new BadRequestException("Page number cannot be less than zero.");
