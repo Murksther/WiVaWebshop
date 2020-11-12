@@ -1,4 +1,4 @@
-import { API_BASE_URL, ACCESS_TOKEN } from '../constants';
+import {API_BASE_URL, ACCESS_TOKEN, PRODUCT_LIST_SIZE} from '../constants';
 
 const request = (options) => {
     const headers = new Headers({
@@ -77,5 +77,15 @@ export function createProduct(productData) {
         url: API_BASE_URL + "/products",
         method: 'POST',
         body: JSON.stringify(productData)
+    });
+}
+
+export function getAllProducts(page, size) {
+    page = page || 0;
+    size = size || PRODUCT_LIST_SIZE;
+
+    return request({
+        url: API_BASE_URL + "/products?page=" + page + "&size=" + size,
+        method: 'GET'
     });
 }

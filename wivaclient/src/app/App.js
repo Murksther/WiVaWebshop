@@ -19,6 +19,7 @@ import PrivateRoute from '../common/PrivateRoute';
 import NewProduct from "../product/NewProduct";
 
 import { Layout, notification } from 'antd';
+import ProductList from "../product/ProductList";
 
 const { Content } = Layout;
 
@@ -74,14 +75,14 @@ class App extends Component{
         this.props.history.push(redirectTo);
 
         notification[notificationType]({
-            message: 'WiVa Webshop',
+            message: 'WiVa WebShop',
             description: description,
         });
     }
 
     handleLogin() {
         notification.success({
-            message: 'WiVa Webshop',
+            message: 'WiVa WebShop',
             description: "You're successfully logged in.",
         });
         this.loadCurrentUser();
@@ -100,6 +101,10 @@ class App extends Component{
                 <Content className="app-content">
                     <div className="container">
                         <Switch>
+                            <Route exact path="/"
+                                   render={(props) => <ProductList isAuthenticated={this.state.isAuthenticated}
+                                        currentUser={this.state.currentUser} handleLogout={this.handleLogout} {...props} />}>
+                            </Route>
                             <Route path="/login"
                                    render={(props) => <Login onLogin={this.handleLogin} {...props} />}></Route>
                             <Route path="/signup" component={Signup}></Route>

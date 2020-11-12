@@ -6,7 +6,7 @@ import com.example.WiVaServer.product.payload.ProductResponse;
 
 public class ModelMapper {
 
-    public static ProductResponse mappProductToProductReponse(Product product) {
+    public static ProductResponse mapProductToProductReponse(Product product) {
         ProductResponse productResponse = new ProductResponse();
         productResponse.setId(product.getId());
         productResponse.setName(product.getName());

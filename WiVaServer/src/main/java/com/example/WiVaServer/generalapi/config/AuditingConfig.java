@@ -1,4 +1,4 @@
-package com.example.WiVaServer.user.config;
+package com.example.WiVaServer.generalapi.config;
 
 import com.example.WiVaServer.user.security.UserPrincipal;
 import org.springframework.context.annotation.Bean;
