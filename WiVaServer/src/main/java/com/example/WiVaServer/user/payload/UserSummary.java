@@ -1,14 +1,20 @@
 package com.example.WiVaServer.user.payload;
 
+import org.springframework.security.core.GrantedAuthority;
+
+import java.util.Collection;
+
 public class UserSummary {
     private Long id;
     private String username;
     private String name;
+    private boolean isAdmin;
 
-    public UserSummary(Long id, String username, String name) {
+    public UserSummary(Long id, String username, String name, Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.username = username;
         this.name = name;
+        this.isAdmin = isAdmin(authorities);
     }
 
     public Long getId() {
@@ -30,5 +36,16 @@ public class UserSummary {
     }
     public void setName(String name) {
         this.name = name;
+    }
+
+    public boolean getIsAdmin() {return isAdmin;}
+
+    private static boolean isAdmin(Collection authorities){
+        for (Object authority: authorities) {
+            if (authority.toString() == "ROLE_ADMIN"){
+                return true;
+            }
+        }
+        return false;
     }
 }

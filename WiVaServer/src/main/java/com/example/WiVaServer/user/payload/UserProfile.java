@@ -7,8 +7,6 @@ public class UserProfile {
     private String username;
     private String name;
     private Instant joinedAt;
-    private Long pollCount;
-    private Long voteCount;
 
     public UserProfile(Long id, String username, String name, Instant joinedAt) {
         this.id = id;

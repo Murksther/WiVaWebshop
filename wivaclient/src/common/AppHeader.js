@@ -28,17 +28,21 @@ class AppHeader extends Component {
                         <Icon type="home" className="nav-icon" />
                     </Link>
                 </Menu.Item>,
-                <Menu.Item key="/product/new">
-                    <Link to="/product/new">
-                        <Icon type="plus" className="add-icon" />
-                    </Link>
-                </Menu.Item>,
                 <Menu.Item key="/profile" className="profile-menu">
                     <ProfileDropdownMenu
                         currentUser={this.props.currentUser}
                         handleMenuClick={this.handleMenuClick}/>
                 </Menu.Item>
             ];
+            if(this.props.currentUser.isAdmin){
+                menuItems.splice(1,0,
+                    <Menu.Item key="/product/new">
+                        <Link to="/product/new">
+                            <Icon type="plus" className="add-icon" />
+                        </Link>
+                    </Menu.Item>,
+                )
+            }
         } else {
             menuItems = [
                 <Menu.Item key="/login">

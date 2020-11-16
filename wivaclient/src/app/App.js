@@ -88,6 +88,13 @@ class App extends Component{
         this.loadCurrentUser();
         this.props.history.push("/");
     }
+    isAdmin = () => {
+        if (this.state.isAuthenticated){
+            return this.state.currentUser.isAdmin;
+        }
+        else
+            return false;
+    }
 
     render() {
         if(this.state.isLoading) {
@@ -111,7 +118,8 @@ class App extends Component{
                             <Route path="/users/:username"
                                    render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props}  />}>
                             </Route>
-                            <PrivateRoute authenticated={this.state.isAuthenticated} path="/product/new" component={NewProduct} handleLogout={this.handleLogout}></PrivateRoute>
+                            <PrivateRoute authenticated={this.state.isAuthenticated} isAdmin={this.isAdmin()}
+                                          path="/product/new" component={NewProduct} handleLogout={this.handleLogout}></PrivateRoute>
                             <Route component={NotFound}></Route>
                         </Switch>
                     </div>
