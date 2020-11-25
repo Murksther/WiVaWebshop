@@ -3,6 +3,9 @@ package com.example.WiVaServer.product.util;
 import com.example.WiVaServer.product.model.Product;
 import com.example.WiVaServer.product.payload.ProductResponse;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class ModelMapper {
 
@@ -14,7 +17,18 @@ public class ModelMapper {
         productResponse.setUsedMaterial(product.getUsedMaterial());
         productResponse.setPrice(product.getPrice());
         productResponse.setAvailableUnits(product.getAvailableUnits());
+        productResponse.setImages(mergeImages(product));
 
         return productResponse;
+    }
+
+    private static List<String> mergeImages(Product product){
+        List<String> imageList = new ArrayList<>();
+
+        for(int i = 0; i < product.getAmountOfImages();i++)
+            imageList.add(product.getImage((i+1))
+        );
+
+        return imageList;
     }
 }

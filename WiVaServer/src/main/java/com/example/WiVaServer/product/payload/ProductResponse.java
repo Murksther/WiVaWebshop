@@ -1,5 +1,7 @@
 package com.example.WiVaServer.product.payload;
 
+import java.util.List;
+
 public class ProductResponse {
     private int id;
     private String name;
@@ -7,6 +9,7 @@ public class ProductResponse {
     private String usedMaterial;
     private int availableUnits;
     private double price;
+    private List<String> images;
 
     public int getId() { return id;}
     public void setId(int id) { this.id = id;}
@@ -20,4 +23,6 @@ public class ProductResponse {
     public void setAvailableUnits(int availableUnits) { this.availableUnits = availableUnits;}
     public double getPrice() { return price;}
     public void setPrice(double price) { this.price = price;}
+    public List<String> getImages() {return images;}
+    public void setImages(List<String> images){ this.images = images;}
 }
