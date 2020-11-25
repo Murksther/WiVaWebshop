@@ -4,7 +4,8 @@ import {
     withRouter
 } from 'react-router-dom';
 import './AppHeader.css';
-import { Layout, Menu, Dropdown, Icon } from 'antd';
+import { Menu, Layout, Dropdown } from 'antd';
+import {HomeTwoTone, PlusCircleTwoTone, UserOutlined} from "@ant-design/icons";
 const Header = Layout.Header;
 
 class AppHeader extends Component {
@@ -17,6 +18,9 @@ class AppHeader extends Component {
         if(key === "logout") {
             this.props.onLogout();
         }
+        if(key === "profile") {
+            this.props.openProfile();
+        }
     }
 
     render() {
@@ -25,12 +29,7 @@ class AppHeader extends Component {
             menuItems = [
                 <Menu.Item key="/">
                     <Link to="/">
-                        <Icon type="home" className="nav-icon" />
-                    </Link>
-                </Menu.Item>,
-                <Menu.Item key="/product/new">
-                    <Link to="/product/new">
-                        <Icon type="plus" className="add-icon" />
+                        <HomeTwoTone className="nav-icon" />
                     </Link>
                 </Menu.Item>,
                 <Menu.Item key="/profile" className="profile-menu">
@@ -39,13 +38,22 @@ class AppHeader extends Component {
                         handleMenuClick={this.handleMenuClick}/>
                 </Menu.Item>
             ];
+            if(this.props.currentUser.isAdmin){
+                menuItems.splice(1,0,
+                    <Menu.Item key="/product/new">
+                        <Link to="/product/new">
+                            <PlusCircleTwoTone className="nav-icon" />
+                        </Link>
+                    </Menu.Item>,
+                )
+            }
         } else {
             menuItems = [
                 <Menu.Item key="/login">
-                    <Link to="/login">Login</Link>
+                    <Link to="/login">Inloggen</Link>
                 </Menu.Item>,
                 <Menu.Item key="/signup">
-                    <Link to="/signup">Signup</Link>
+                    <Link to="/signup">Registeren</Link>
                 </Menu.Item>
             ];
         }
@@ -81,12 +89,8 @@ function ProfileDropdownMenu(props) {
                 </div>
             </Menu.Item>
             <Menu.Divider />
-            <Menu.Item key="profile" className="dropdown-item">
-                <Link to={`/users/${props.currentUser.username}`}>Profile</Link>
-            </Menu.Item>
-            <Menu.Item key="logout" className="dropdown-item">
-                Logout
-            </Menu.Item>
+            <Menu.Item key="profile" className="dropdown-item">Profiel</Menu.Item>
+            <Menu.Item key="logout" className="dropdown-item">Uitloggen</Menu.Item>
         </Menu>
     );
 
@@ -95,9 +99,9 @@ function ProfileDropdownMenu(props) {
             overlay={dropdownMenu}
             trigger={['click']}
             getPopupContainer = { () => document.getElementsByClassName('profile-menu')[0]}>
-            <a className="ant-dropdown-link">
-                <Icon type="user" className="nav-icon" style={{marginRight: 0}} /> <Icon type="down" />
-            </a>
+            <div className="ant-dropdown-link">
+                <UserOutlined style={{marginRight: 0}} />
+            </div>
         </Dropdown>
     );
 }

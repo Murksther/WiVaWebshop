@@ -5,19 +5,27 @@ import {
   } from "react-router-dom";
   
   
-const PrivateRoute = ({ component: Component, authenticated, ...rest }) => (
+const PrivateRoute = ({ component: Component, authenticated, isAdmin, ...rest }) => (
     <Route
       {...rest}
       render={props =>
-        authenticated ? (
+        isAdmin ? (
           <Component {...rest} {...props} />
-        ) : (
+        ) :
+        authenticated ? (
           <Redirect
             to={{
-              pathname: '/login',
+              pathname: '/',
               state: { from: props.location }
             }}
           />
+        ) : (
+            <Redirect
+                to={{
+                    pathname: '/login',
+                    state: { from: props.location }
+                }}
+            />
         )
       }
     />

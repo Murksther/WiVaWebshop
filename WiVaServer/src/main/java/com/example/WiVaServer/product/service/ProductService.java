@@ -10,8 +10,6 @@ import com.example.WiVaServer.product.repository.ProductRepository;
 import com.example.WiVaServer.product.util.AppConstants;
 import com.example.WiVaServer.product.util.ModelMapper;
 import com.example.WiVaServer.user.security.UserPrincipal;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,14 +17,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
 @Service
 public class ProductService {
     @Autowired private ProductRepository productRepository;
-
-    private static final Logger logger = LoggerFactory.getLogger(ProductService.class);
 
     public Product createProduct(ProductRequest productRequest){
         Product product = new Product();
@@ -35,6 +32,19 @@ public class ProductService {
         product.setUsedMaterial(productRequest.getUsedMaterial());
         product.setAvailableUnits(productRequest.getAvailableUnits());
         product.setPrice(productRequest.getPrice());
+        product.setAmountOfImages(productRequest.getLengthImageList());
+
+        int i;
+        for(i = 0; i <  productRequest.getLengthImageList(); i++){
+            String imageURL = null;
+            try {
+                imageURL = productRequest.getImageURL(i);
+                product.setImage(imageURL, (i+1));
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
         return productRepository.save(product);
     }

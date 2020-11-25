@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {getAllProducts} from '../util/APIUtils';
 import Product from './Product';
 import LoadingIndicator  from '../common/LoadingIndicator';
-import { Button, Icon } from 'antd';
+import { Button } from 'antd';
+import { LoadingOutlined} from '@ant-design/icons';
 import { PRODUCT_LIST_SIZE } from '../constants';
 import { withRouter } from 'react-router-dom';
 import './ProductList.css';
@@ -54,12 +55,10 @@ class ProductList extends Component {
     }
 
     componentDidMount() {
-        console.log('ComponentDidMount')
         this.loadProductList();
     }
 
     componentDidUpdate(nextProps) {
-        console.log('ComponentDidUpdate')
         if(this.props.isAuthenticated !== nextProps.isAuthenticated) {
             // Reset State
             this.setState({
@@ -101,7 +100,7 @@ class ProductList extends Component {
                     !this.state.isLoading && !this.state.last ? (
                         <div className="load-more-products">
                             <Button type="dashed" onClick={this.handleLoadMore} disabled={this.state.isLoading}>
-                                <Icon type="plus" /> Load more
+                                <LoadingOutlined /> Load more
                             </Button>
                         </div>): null
                 }

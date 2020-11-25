@@ -1,8 +1,11 @@
 import React, {Component} from "react";
-import { createProduct } from '../util/APIUtils';
+import { createProduct, } from '../util/APIUtils';
+import { getBase64 } from '../util/Utils';
 import { PRODUCT_NAME_MAX_LENGTH } from '../constants';
 import './NewProduct.css';
 import { Form, Input, Button, Select, notification } from 'antd';
+import { PicturesWall} from '../product/PicturesWall';
+import LoadingIndicator from "../common/LoadingIndicator";
 const Option = Select.Option;
 const FormItem = Form.Item;
 const { TextArea } = Input;
@@ -25,7 +28,12 @@ class NewProduct extends Component {
             },
             price: {
                 price: ''
-            }
+            },
+            fileList: [],
+            images: {
+                base64List:[]
+            },
+            isLoading: false,
         };
         this.handleProductNameChange = this.handleProductNameChange.bind(this);
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
@@ -123,6 +131,7 @@ class NewProduct extends Component {
             }
         }
     }
+
     handlePriceChange(event) {
         const value = event.target.value;
         this.setState({
@@ -142,15 +151,22 @@ class NewProduct extends Component {
         else if(this.state.price.validateStatus !== 'success') {
             return true;
         }
+        else if(this.state.images.validateStatus !== 'success') {
+            return true;
+        }
     }
+
     handleSubmit(event) {
         event.preventDefault();
+        this.setState({isLoading: true});
+
         const productData = {
             name: this.state.productName.text,
             description: this.state.description.text,
             usedMaterial: this.state.usedMaterial.text,
             availableUnits: this.state.availableUnits.amount,
             price: this.state.price.price,
+            images: this.state.images.base64List
         };
 
         createProduct(productData)
@@ -158,7 +174,7 @@ class NewProduct extends Component {
                 this.props.history.push("/");
             }).catch(error => {
             if(error.status === 401) {
-                this.props.handleLogout('/login', 'error', 'You have been logged out. Please login add product.');
+                this.props.handleLogout('/login', 'error', 'You have been logged out. Please login.');
             } else {
                 notification.error({
                     message: 'WiVa Webshop',
@@ -166,17 +182,48 @@ class NewProduct extends Component {
                 });
             }
         });
+        this.setState({isLoading: false});
     }
+    handleFileChange = ({ fileList }) => {this.setState({fileList});
+        this.setState({
+            images:{
+                validateStatus: 'in progress'
+            }
+        });
+        this.setBase64List({fileList});
+    }
+
+    async setBase64List({fileList}) {
+        let counter;
+        let loopAmount = Object.keys(fileList).length;
+        let base64List = [];
+
+            for(counter = 0; counter < loopAmount; counter++) {
+            const base64String = await getBase64(fileList[counter].originFileObj);
+            base64List.push(base64String)
+
+        }
+        this.setState({
+            images:{
+                base64List: base64List,
+                validateStatus: 'success'
+            }
+        });
+    }
+
     render() {
+        if(this.state.isLoading) {
+            return <LoadingIndicator />
+        }
         return (
             <div className="new-product-container">
-                <h1 className="page-title">Add Product</h1>
+                <h1 className="page-title">Product toevoegen</h1>
                 <div className="new-product-content">
                     <Form onSubmit={this.handleSubmit} className="create-product-form">
                         <FormItem validateStatus={this.state.productName.validateStatus}
                                   help={this.state.productName.errorMsg} className="product-form-row">
                             <Input
-                                placeholder="Enter the name of the product"
+                                placeholder="Geef de naam van het product"
                                 style = {{ fontSize: '16px' }}
                                 name = "name"
                                 value = {this.state.productName.text}
@@ -184,18 +231,18 @@ class NewProduct extends Component {
                         </FormItem>
                         <FormItem className="product-form-row">
                             <TextArea
-                                placeholder="Enter a short description of the product"
+                                placeholder="Voeg een korte omschrijving van het product toe"
                                 style = {{ fontSize: '16px' }}
-                                autosize={{ minRows: 3, maxRows: 4 }}
+                                autoSize={{ minRows: 3, maxRows: 4 }}
                                 name = "description"
                                 value = {this.state.description.text}
                                 onChange = {this.handleDescriptionChange} />
                         </FormItem>
                         <FormItem className="product-form-row">
                             <TextArea
-                                placeholder="What materials are used for this product?"
+                                placeholder="Welke materialen zijn er gebruikt?"
                                 style = {{ fontSize: '16px' }}
-                                autosize={{ minRows: 2, maxRows: 4 }}
+                                autoSize={{ minRows: 2, maxRows: 4 }}
                                 name = "used materials"
                                 value = {this.state.usedMaterial.text}
                                 onChange = {this.handleUsedMaterialChange} />
@@ -203,7 +250,7 @@ class NewProduct extends Component {
                         <FormItem validateStatus={this.state.availableUnits.validateStatus}
                                   help={this.state.availableUnits.errorMsg} className="product-form-row">
                             <span style = {{ marginRight: '18px' }}>
-                                Available for sale: &nbsp;
+                                Aantal beschikbaar voor verkoop: &nbsp;
                                 <Select
                                     name="AmountAvailable"
                                     onChange={this.handleAvailableUnitsChange}
@@ -214,24 +261,29 @@ class NewProduct extends Component {
                                             <Option key={i}>{i}</Option>
                                         )
                                     }
-                                </Select> &nbsp;Units
+                                </Select> &nbsp;units
                             </span>
                         </FormItem>
                         <FormItem validateStatus={this.state.price.validateStatus}
                                   help={this.state.price.errorMsg} className="product-form-row">
                             <Input
-                                placeholder="Price?"
+                                placeholder="Prijs?"
                                 style = {{ fontSize: '16px' }}
                                 name = "Price"
                                 value = {this.state.price.price}
                                 onChange = {this.handlePriceChange} />
                         </FormItem>
+                        <PicturesWall
+                            handleChange={this.handleFileChange}
+                            fileList = {this.state.fileList}>
+                        </PicturesWall>
                         <FormItem className="product-form-row">
                             <Button type="primary"
                                     htmlType="submit"
                                     size="large"
                                     disabled={this.isFormInvalid()}
-                                    className="create-product-form-button">Add Product</Button>
+                                    onClick={this.handleSubmit}
+                                    className="create-product-form-button">Product toevoegen</Button>
                         </FormItem>
                     </Form>
                 </div>

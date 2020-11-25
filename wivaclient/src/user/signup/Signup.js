@@ -12,6 +12,11 @@ import {
 import { Form, Input, Button, notification } from 'antd';
 const FormItem = Form.Item;
 
+const layout = {
+    labelCol: { span: 8},
+    wrapperCol: { span: 32 },
+};
+
 class Signup extends Component {
     constructor(props) {
         super(props);
@@ -62,13 +67,13 @@ class Signup extends Component {
             .then(response => {
                 notification.success({
                     message: 'WiVa Design',
-                    description: "Thank you! You're successfully registered. Please Login to continue!",
+                    description: "Bedankt! Je bent succesvol geregistreed. Login om verder te gaan!",
                 });
                 this.props.history.push("/login");
             }).catch(error => {
             notification.error({
                 message: 'Wiva Design',
-                description: error.message || 'Sorry! Something went wrong. Please try again!'
+                description: error.message || 'Sorry! Er ging iets fout. Probeer het alsjeblieft opnieuw!'
             });
         });
     }
@@ -84,22 +89,22 @@ class Signup extends Component {
     render() {
         return (
             <div className="signup-container">
-                <h1 className="page-title">Sign Up</h1>
+                <h1 className="page-title">Registreer gebruiker</h1>
                 <div className="signup-content">
-                    <Form onSubmit={this.handleSubmit} className="signup-form">
+                    <Form {...layout} onSubmit={this.handleSubmit} className="signup-form">
                         <FormItem
-                            label="Full Name"
+                            label="Voor- en achternaam"
                             validateStatus={this.state.name.validateStatus}
                             help={this.state.name.errorMsg}>
                             <Input
                                 size="large"
                                 name="name"
                                 autoComplete="off"
-                                placeholder="Your full name"
+                                placeholder="Je volledige naam"
                                 value={this.state.name.value}
                                 onChange={(event) => this.handleInputChange(event, this.validateName)} />
                         </FormItem>
-                        <FormItem label="Username"
+                        <FormItem label="Gebuikersnaam"
                                   hasFeedback
                                   validateStatus={this.state.username.validateStatus}
                                   help={this.state.username.errorMsg}>
@@ -107,7 +112,7 @@ class Signup extends Component {
                                 size="large"
                                 name="username"
                                 autoComplete="off"
-                                placeholder="A unique username"
+                                placeholder="Een unieke gebruikersnaam"
                                 value={this.state.username.value}
                                 onBlur={this.validateUsernameAvailability}
                                 onChange={(event) => this.handleInputChange(event, this.validateUsername)} />
@@ -122,13 +127,13 @@ class Signup extends Component {
                                 name="email"
                                 type="email"
                                 autoComplete="off"
-                                placeholder="Your email"
+                                placeholder="Je email"
                                 value={this.state.email.value}
                                 onBlur={this.validateEmailAvailability}
                                 onChange={(event) => this.handleInputChange(event, this.validateEmail)} />
                         </FormItem>
                         <FormItem
-                            label="Password"
+                            label="Wachtwoord"
                             validateStatus={this.state.password.validateStatus}
                             help={this.state.password.errorMsg}>
                             <Input
@@ -136,7 +141,7 @@ class Signup extends Component {
                                 name="password"
                                 type="password"
                                 autoComplete="off"
-                                placeholder="A password between 6 to 20 characters"
+                                placeholder="Tussen de 6 en 20 karakters"
                                 value={this.state.password.value}
                                 onChange={(event) => this.handleInputChange(event, this.validatePassword)} />
                         </FormItem>
@@ -145,8 +150,9 @@ class Signup extends Component {
                                     htmlType="submit"
                                     size="large"
                                     className="signup-form-button"
-                                    disabled={this.isFormInvalid()}>Sign up</Button>
-                            Already registed? <Link to="/login">Login now!</Link>
+                                    onClick={this.handleSubmit}
+                                    disabled={this.isFormInvalid()}>Registreer</Button>
+                            Al geregistreerd? <Link to="/login">Login nu!</Link>
                         </FormItem>
                     </Form>
                 </div>
@@ -160,12 +166,12 @@ class Signup extends Component {
         if(name.length < NAME_MIN_LENGTH) {
             return {
                 validateStatus: 'error',
-                errorMsg: `Name is too short (Minimum ${NAME_MIN_LENGTH} characters needed.)`
+                errorMsg: `Naam is te kort (Minimaal ${NAME_MIN_LENGTH} karakters nodig.)`
             }
         } else if (name.length > NAME_MAX_LENGTH) {
             return {
                 validationStatus: 'error',
-                errorMsg: `Name is too long (Maximum ${NAME_MAX_LENGTH} characters allowed.)`
+                errorMsg: `Naam is te lang (Maximaal ${NAME_MAX_LENGTH} karakters toegestaan.)`
             }
         } else {
             return {
@@ -179,7 +185,7 @@ class Signup extends Component {
         if(!email) {
             return {
                 validateStatus: 'error',
-                errorMsg: 'Email may not be empty'
+                errorMsg: 'Email mag niet leeg zijn'
             }
         }
 
@@ -187,14 +193,14 @@ class Signup extends Component {
         if(!EMAIL_REGEX.test(email)) {
             return {
                 validateStatus: 'error',
-                errorMsg: 'Email not valid'
+                errorMsg: 'Ongeldig emailadres'
             }
         }
 
         if(email.length > EMAIL_MAX_LENGTH) {
             return {
                 validateStatus: 'error',
-                errorMsg: `Email is too long (Maximum ${EMAIL_MAX_LENGTH} characters allowed)`
+                errorMsg: `Emailadres is te lang (Maximaal ${EMAIL_MAX_LENGTH} karakters toegestaan)`
             }
         }
 
@@ -208,12 +214,12 @@ class Signup extends Component {
         if(username.length < USERNAME_MIN_LENGTH) {
             return {
                 validateStatus: 'error',
-                errorMsg: `Username is too short (Minimum ${USERNAME_MIN_LENGTH} characters needed.)`
+                errorMsg: `Gebruikersnaam is te kort (Minimaal ${USERNAME_MIN_LENGTH} karakters nodig.)`
             }
         } else if (username.length > USERNAME_MAX_LENGTH) {
             return {
                 validationStatus: 'error',
-                errorMsg: `Username is too long (Maximum ${USERNAME_MAX_LENGTH} characters allowed.)`
+                errorMsg: `Gebruikersnaam is te lang (Maximaal ${USERNAME_MAX_LENGTH} karakters toegestaan.)`
             }
         } else {
             return {
@@ -261,7 +267,7 @@ class Signup extends Component {
                         username: {
                             value: usernameValue,
                             validateStatus: 'error',
-                            errorMsg: 'This username is already taken'
+                            errorMsg: 'Gebruikersnaam wordt al gebruikt'
                         }
                     });
                 }
@@ -315,7 +321,7 @@ class Signup extends Component {
                         email: {
                             value: emailValue,
                             validateStatus: 'error',
-                            errorMsg: 'This Email is already registered'
+                            errorMsg: 'Dit e-mailadres is reeds bekend'
                         }
                     });
                 }
@@ -335,12 +341,12 @@ class Signup extends Component {
         if(password.length < PASSWORD_MIN_LENGTH) {
             return {
                 validateStatus: 'error',
-                errorMsg: `Password is too short (Minimum ${PASSWORD_MIN_LENGTH} characters needed.)`
+                errorMsg: `Wachtwoord is te kort (Minimaal ${PASSWORD_MIN_LENGTH} karakters nodig.)`
             }
         } else if (password.length > PASSWORD_MAX_LENGTH) {
             return {
                 validationStatus: 'error',
-                errorMsg: `Password is too long (Maximum ${PASSWORD_MAX_LENGTH} characters allowed.)`
+                errorMsg: `Wachtwoord is te lang (Maximaal ${PASSWORD_MAX_LENGTH} karakters toegestaan.)`
             }
         } else {
             return {

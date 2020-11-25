@@ -1,6 +1,7 @@
 import {API_BASE_URL, ACCESS_TOKEN, PRODUCT_LIST_SIZE} from '../constants';
 
 const request = (options) => {
+
     const headers = new Headers({
         'Content-Type': 'application/json',
     })

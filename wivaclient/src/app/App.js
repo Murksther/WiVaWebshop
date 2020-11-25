@@ -64,7 +64,11 @@ class App extends Component{
         this.loadCurrentUser();
     }
 
-    handleLogout(redirectTo="/", notificationType="success", description="You're successfully logged out.") {
+    handleOpenProfile = () => {
+        this.props.history.push(`/users/${this.state.currentUser.username}`);
+    }
+
+    handleLogout(redirectTo="/", notificationType="success", description="Je bent succesvol uitgelogd.") {
         localStorage.removeItem(ACCESS_TOKEN);
 
         this.setState({
@@ -83,10 +87,17 @@ class App extends Component{
     handleLogin() {
         notification.success({
             message: 'WiVa WebShop',
-            description: "You're successfully logged in.",
+            description: "Je bent succesvol ingelogd.",
         });
         this.loadCurrentUser();
         this.props.history.push("/");
+    }
+    isAdmin = () => {
+        if (this.state.isAuthenticated){
+            return this.state.currentUser.isAdmin;
+        }
+        else
+            return false;
     }
 
     render() {
@@ -97,22 +108,23 @@ class App extends Component{
             <Layout className="app-container">
                 <AppHeader isAuthenticated={this.state.isAuthenticated}
                            currentUser={this.state.currentUser}
-                           onLogout={this.handleLogout} />
+                           onLogout={this.handleLogout}
+                           openProfile={this.handleOpenProfile}
+                />
                 <Content className="app-content">
                     <div className="container">
                         <Switch>
                             <Route exact path="/"
                                    render={(props) => <ProductList isAuthenticated={this.state.isAuthenticated}
-                                        currentUser={this.state.currentUser} handleLogout={this.handleLogout} {...props} />}>
-                            </Route>
+                                        currentUser={this.state.currentUser} handleLogout={this.handleLogout} {...props} />}/>
                             <Route path="/login"
-                                   render={(props) => <Login onLogin={this.handleLogin} {...props} />}></Route>
-                            <Route path="/signup" component={Signup}></Route>
+                                render={(props) => <Login onLogin={this.handleLogin} {...props} />}/>
+                            <Route path="/signup" component={Signup}/>
                             <Route path="/users/:username"
-                                   render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props}  />}>
-                            </Route>
-                            <PrivateRoute authenticated={this.state.isAuthenticated} path="/product/new" component={NewProduct} handleLogout={this.handleLogout}></PrivateRoute>
-                            <Route component={NotFound}></Route>
+                                   render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props}  />}/>
+                            <PrivateRoute authenticated={this.state.isAuthenticated} isAdmin={this.isAdmin()}
+                                path="/product/new" component={NewProduct} handleLogout={this.handleLogout}/>
+                            <Route component={NotFound}/>
                         </Switch>
                     </div>
                 </Content>

@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 import './Product.css';
-import { Avatar } from 'antd';
-import { getAvatarColor } from '../util/Colors';
-import { Row, Col } from 'antd';
+import {Row, Image, Carousel, Col } from 'antd';
 
 class Product extends Component {
 
     render() {
+        const images = [];
+        for (const [index] of this.props.product.images.entries()) {
+            images.push(<div>
+                            <Image key={this.props.product.id + '-' + index} src={this.props.product.images[index]} />
+                        </div>)
+        }
 
         return (
             <Row className="product-content">
                 <Col span ={8} className="product-header">
                     <div className="product-image">
-                        <Avatar className="product-creator-avatar"
-                                style={{ backgroundColor: getAvatarColor(this.props.product.name)}} >
-                            {this.props.product.name.toUpperCase()}
-                        </Avatar>
+                        <Carousel autoplay>
+                            {images}
+                        </Carousel>
                     </div>
                 </Col>
                 <Col span={16}>
@@ -31,7 +34,7 @@ class Product extends Component {
                         {this.props.product.usedMaterial.split('\n').map(str => <div>{str}</div>)}
                     </div>
                     <div className="product-question">
-                        Prijs: € {this.props.product.price}
+                        Prijs: {new Intl.NumberFormat('nl-NL', { style: 'currency', currency: 'EUR' }).format(this.props.product.price)}
                     </div>
                     <div className="product-question">
                         Aantal beschikbaar: {this.props.product.availableUnits}
