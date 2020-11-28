@@ -90,3 +90,4 @@ export function getAllProducts(page, size) {
         method: 'GET'
     });
 }
+

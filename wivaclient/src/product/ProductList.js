@@ -57,7 +57,7 @@ class ProductList extends Component {
     componentDidMount() {
         this.loadProductList();
     }
-
+    // To-Do: Kan weg?
     componentDidUpdate(nextProps) {
         if(this.props.isAuthenticated !== nextProps.isAuthenticated) {
             // Reset State
@@ -78,12 +78,19 @@ class ProductList extends Component {
         this.loadProductList(this.state.page + 1);
     }
 
+
     render() {
         const productViews = [];
         this.state.products.forEach((product) => {
+            let amountInCart =0;
+            if(this.props.shoppingCart.products.find(({id}) => id === product.id)){
+                amountInCart = this.props.shoppingCart.products.find(({id}) => id === product.id).amountInCart
+            }
             productViews.push(<Product
                 key={product.id}
-                product={product}/>)
+                product={product}
+                handleAddToCart={this.props.handleAddToCart}
+                amountInCart={amountInCart}/>)
         });
 
         return (

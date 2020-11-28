@@ -5,7 +5,12 @@ import {
 } from 'react-router-dom';
 import './AppHeader.css';
 import { Menu, Layout, Dropdown } from 'antd';
-import {HomeTwoTone, PlusCircleTwoTone, UserOutlined} from "@ant-design/icons";
+import {
+    HomeOutlined,
+    PlusCircleOutlined,
+    ShoppingCartOutlined,
+    UserOutlined
+} from "@ant-design/icons";
 const Header = Layout.Header;
 
 class AppHeader extends Component {
@@ -24,12 +29,26 @@ class AppHeader extends Component {
     }
 
     render() {
+        let cartLink = '';
+        if (this.props.totalInCart > 0){
+            cartLink = "/ShoppingCart"
+        } else{
+            cartLink = "/"
+        }
         let menuItems;
         if(this.props.currentUser) {
             menuItems = [
                 <Menu.Item key="/">
                     <Link to="/">
-                        <HomeTwoTone className="nav-icon" />
+                        <HomeOutlined/>
+                    </Link>
+                </Menu.Item>,
+                <Menu.Item className="menuItem" key="/ShoppingCart">
+                    <Link to={cartLink}>
+                        <ShoppingCartOutlined/>
+                        <div className="cartInfo">
+                            {this.props.totalInCart}
+                        </div>
                     </Link>
                 </Menu.Item>,
                 <Menu.Item key="/profile" className="profile-menu">
@@ -42,7 +61,7 @@ class AppHeader extends Component {
                 menuItems.splice(1,0,
                     <Menu.Item key="/product/new">
                         <Link to="/product/new">
-                            <PlusCircleTwoTone className="nav-icon" />
+                            <PlusCircleOutlined/>
                         </Link>
                     </Menu.Item>,
                 )

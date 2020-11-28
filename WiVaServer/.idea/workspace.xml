@@ -5,33 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8730f17b-506b-4d88-a5d2-6065f4ba6ebb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/controller/ImageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/payload/ImageRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../wivaclient/src/product/PicturesWall.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../wivaclient/src/product/PicturesWall.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../wivaclient/src/util/Utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wivaclient/.idea/dictionaries/Markv.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wivaclient/src/shoppingcart/ProductSummary.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wivaclient/src/shoppingcart/ProductSummary.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wivaclient/src/shoppingcart/ShoppingCart.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wivaclient/src/shoppingcart/ShoppingCart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/model/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/payload/ProductRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/payload/ProductRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/payload/ProductResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/payload/ProductResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/util/AppConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/util/AppConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/util/ModelMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/util/ModelMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wivaclient/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wivaclient/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../wivaclient/src/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/app/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../wivaclient/src/common/AppHeader.css" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/common/AppHeader.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../wivaclient/src/common/AppHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/common/AppHeader.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../wivaclient/src/common/LoadingIndicator.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/common/LoadingIndicator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wivaclient/src/constants/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/constants/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wivaclient/src/product/NewProduct.css" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/product/NewProduct.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../wivaclient/src/product/NewProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/product/NewProduct.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wivaclient/src/product/Product.css" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/product/Product.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../wivaclient/src/product/Product.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/product/Product.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../wivaclient/src/product/ProductList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/product/ProductList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../wivaclient/src/user/login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/user/login/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wivaclient/src/user/signup/Signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/user/signup/Signup.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../wivaclient/src/util/APIUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/util/APIUtils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -158,7 +146,7 @@
       <workItem from="1604751500166" duration="6525000" />
       <workItem from="1605105739728" duration="7724000" />
       <workItem from="1605178931697" duration="2524000" />
-      <workItem from="1605520762924" duration="39826000" />
+      <workItem from="1605520762924" duration="40430000" />
     </task>
     <task id="LOCAL-00001" summary="Added User Role, and Dependencies used in the future">
       <created>1576104646696</created>

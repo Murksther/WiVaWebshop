@@ -1,0 +1,22 @@
+
+.image-container{
+    height: 80px;
+}
+.image{
+    float: right;
+    margin: 5px 10px 0 0;
+}
+.title-container{
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.price-container, .total-price-container{
+    line-height: 32px;
+    font-size: 14px;
+}
+.total-price-container{
+    float: right;
+    margin-right: 20px;
+}
