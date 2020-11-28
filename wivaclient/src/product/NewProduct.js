@@ -4,8 +4,7 @@ import { getBase64 } from '../util/Utils';
 import { PRODUCT_NAME_MAX_LENGTH } from '../constants';
 import './NewProduct.css';
 import { Form, Input, Button, Select, notification } from 'antd';
-import { PicturesWall} from '../product/PicturesWall';
-import LoadingIndicator from "../common/LoadingIndicator";
+import { PicturesWall} from './PicturesWall';
 const Option = Select.Option;
 const FormItem = Form.Item;
 const { TextArea } = Input;
@@ -33,7 +32,7 @@ class NewProduct extends Component {
             images: {
                 base64List:[]
             },
-            isLoading: false,
+            loading: false,
         };
         this.handleProductNameChange = this.handleProductNameChange.bind(this);
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
@@ -41,18 +40,17 @@ class NewProduct extends Component {
         this.handleAvailableUnitsChange = this.handleAvailableUnitsChange.bind(this);
         this.handlePriceChange = this.handlePriceChange.bind(this);
         this.isFormInvalid = this.isFormInvalid.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
     validateProductName = (productName) => {
         if(productName.length === 0) {
             return {
                 validateStatus: 'error',
-                errorMsg: 'Please enter a name'
+                errorMsg: 'Voer a.u.b. een naam in'
             }
         } else if(productName.length > PRODUCT_NAME_MAX_LENGTH) {
             return{
                 validateStatus: 'error',
-                errorMsg: `Name too long (Maximum of ${PRODUCT_NAME_MAX_LENGTH} characters allowed`
+                errorMsg: `Naam is te lang (Maximaal ${PRODUCT_NAME_MAX_LENGTH} karakters toegestaan`
             }
         } else {
             return {
@@ -90,12 +88,12 @@ class NewProduct extends Component {
         if(isNaN(amount)){
             return{
                 validateStatus: 'error',
-                errorMsg: 'Please enter an amount'
+                errorMsg: 'Geef een hoeveelheid aan'
             }
         } else if(amount < 0) {
             return{
                 validateStatus: 'error',
-                errorMsg: 'Please enter an amount of 0 or higher'
+                errorMsg: 'Hoeveelheid moet 0 of hoger zijn'
             }
         } else {
             return {
@@ -117,12 +115,12 @@ class NewProduct extends Component {
         if(isNaN(price)){
             return{
                 validateStatus: 'error',
-                errorMsg: 'Please enter an amount'
+                errorMsg: 'Geef een hoeveelheid aan'
             }
         } else if(price < 0) {
             return{
                 validateStatus: 'error',
-                errorMsg: 'Please enter an amount of 0 or higher'
+                errorMsg: 'Hoeveelheid moet 0 of hoger zijn'
             }
         } else {
             return {
@@ -156,10 +154,11 @@ class NewProduct extends Component {
         }
     }
 
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         event.preventDefault();
-        this.setState({isLoading: true});
+        this.setState(state => ({...state, loading: true})); //TO-DO kijken waarom state niet wordt geupdate...
 
+        console.log(this.state.loading);
         const productData = {
             name: this.state.productName.text,
             description: this.state.description.text,
@@ -174,15 +173,15 @@ class NewProduct extends Component {
                 this.props.history.push("/");
             }).catch(error => {
             if(error.status === 401) {
-                this.props.handleLogout('/login', 'error', 'You have been logged out. Please login.');
+                this.props.handleLogout('/login', 'error', 'Je bent uitgelogd. Log a.u.b. opnieuw in.');
             } else {
                 notification.error({
                     message: 'WiVa Webshop',
-                    description: error.message || 'Sorry! Something went wrong. Please try again!'
+                    description: error.message || 'Oeps! Er ging iets fout. Probeer opnieuw!'
                 });
             }
         });
-        this.setState({isLoading: false});
+        this.setState({loading: false});
     }
     handleFileChange = ({ fileList }) => {this.setState({fileList});
         this.setState({
@@ -212,9 +211,6 @@ class NewProduct extends Component {
     }
 
     render() {
-        if(this.state.isLoading) {
-            return <LoadingIndicator />
-        }
         return (
             <div className="new-product-container">
                 <h1 className="page-title">Product toevoegen</h1>
@@ -283,6 +279,7 @@ class NewProduct extends Component {
                                     size="large"
                                     disabled={this.isFormInvalid()}
                                     onClick={this.handleSubmit}
+                                    loading={this.state.loading}
                                     className="create-product-form-button">Product toevoegen</Button>
                         </FormItem>
                     </Form>

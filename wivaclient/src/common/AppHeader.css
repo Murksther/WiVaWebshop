@@ -62,14 +62,25 @@
     margin: -10px -12px;
 }
 
-.nav-icon {
-    font-size: 50px;
-}
-
 .wiva-icon {
     margin-top: -4px;
 }
-
+.cartInfo {
+    border-radius: 50%;
+    background: #73AD21;
+    width: 25px;
+    height: 25px;
+    position:absolute;
+    bottom:0;
+    right:0;
+    font-size: 12px;
+    text-align: center;
+    line-height: 25px;
+    font-weight: bold;
+}
+.menuItem{
+    position: relative;
+}
 @media (max-width: 768px) {
     .app-title a {
         font-size: 20px;
@@ -80,7 +91,7 @@
     }
 
     .app-menu > li > a {
-        padding: 0 15px;
-        margin: 0 -15px;
+        padding: 0 5px;
+        margin: 0 -5px;
     }
 }

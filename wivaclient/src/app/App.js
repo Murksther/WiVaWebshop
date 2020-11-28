@@ -20,6 +20,7 @@ import NewProduct from "../product/NewProduct";
 
 import { Layout, notification } from 'antd';
 import ProductList from "../product/ProductList";
+import ShoppingCart from "../shoppingcart/ShoppingCart";
 
 const { Content } = Layout;
 
@@ -29,7 +30,11 @@ class App extends Component{
         this.state = {
             currentUser: null,
             isAuthenticated: false,
-            isLoading: false
+            isLoading: false,
+            shoppingCart: {
+                totalAmountInCart: 0,
+                products: []
+            }
         }
         this.handleLogout = this.handleLogout.bind(this);
         this.loadCurrentUser = this.loadCurrentUser.bind(this);
@@ -100,6 +105,44 @@ class App extends Component{
             return false;
     }
 
+    addToCart = (product) => {
+        let newCart = this.state.shoppingCart;
+        const productIndex = newCart.products.findIndex(({id}) => id === product.id);
+
+        if (productIndex !== -1) {
+            newCart.products[productIndex].amountInCart++;
+
+        } else {
+            product.amountInCart = 1;
+        newCart.products.push(product);
+        }
+        newCart.totalAmountInCart++
+        this.setState({shoppingCart: newCart});
+        notification.success({
+            message: 'WiVa WebShop',
+            description: product.name + " aan wagen toegevoegd",
+            duration: 1,
+        });
+    }
+    setAmountInCart = (amount, product) => {
+        let newCart = this.state.shoppingCart;
+        const productIndex = newCart.products.findIndex(({id}) => id === product.id);
+        if(amount > 0) {
+                newCart.products[productIndex].amountInCart = amount;
+        }else {
+            const tempCart = [];
+            for (let i = 0; i < newCart.products.length; i++) {
+                if (i !== productIndex) {
+                    tempCart.push(newCart.products[i]);
+                }
+            }
+            newCart.products = tempCart;
+        }
+        newCart.totalAmountInCart = 0;
+        newCart.products.forEach(product =>  newCart.totalAmountInCart += parseInt(product.amountInCart))
+        this.setState(state => ({...state, shoppingCart: newCart}));
+    }
+
     render() {
         if(this.state.isLoading) {
             return <LoadingIndicator />
@@ -110,20 +153,32 @@ class App extends Component{
                            currentUser={this.state.currentUser}
                            onLogout={this.handleLogout}
                            openProfile={this.handleOpenProfile}
+                           totalInCart ={this.state.shoppingCart.totalAmountInCart}
                 />
                 <Content className="app-content">
                     <div className="container">
                         <Switch>
                             <Route exact path="/"
-                                   render={(props) => <ProductList isAuthenticated={this.state.isAuthenticated}
-                                        currentUser={this.state.currentUser} handleLogout={this.handleLogout} {...props} />}/>
+                                   render={(props) =>
+                                       <ProductList isAuthenticated={this.state.isAuthenticated}
+                                                    currentUser={this.state.currentUser}
+                                                    handleLogout={this.handleLogout} {...props}
+                                                    shoppingCart={this.state.shoppingCart}
+                                                    handleAddToCart={this.addToCart}
+                                       />}/>
+                            <Route path="/ShoppingCart"
+                                   render={(props) =>
+                                       <ShoppingCart shoppingCart={this.state.shoppingCart}
+                                                     handleChangeAmountInCart={this.setAmountInCart}/>}/>
                             <Route path="/login"
                                 render={(props) => <Login onLogin={this.handleLogin} {...props} />}/>
                             <Route path="/signup" component={Signup}/>
                             <Route path="/users/:username"
-                                   render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props}  />}/>
-                            <PrivateRoute authenticated={this.state.isAuthenticated} isAdmin={this.isAdmin()}
-                                path="/product/new" component={NewProduct} handleLogout={this.handleLogout}/>
+                                   render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props} />}/>
+                            <PrivateRoute authenticated={this.state.isAuthenticated}
+                                          isAdmin={this.isAdmin}
+                                          handleLogout={this.handleLogout}
+                                          path="/product/new" component={NewProduct} />
                             <Route component={NotFound}/>
                         </Switch>
                     </div>
