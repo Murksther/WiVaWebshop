@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { signup, checkUsernameAvailability, checkEmailAvailability } from '../../util/APIUtils';
+import { signup, checkUsernameAvailability, checkEmailAvailability } from '../util/APIUtils';
 import './Signup.css';
 import { Link } from 'react-router-dom';
 import {
@@ -7,7 +7,7 @@ import {
     USERNAME_MIN_LENGTH, USERNAME_MAX_LENGTH,
     EMAIL_MAX_LENGTH,
     PASSWORD_MIN_LENGTH, PASSWORD_MAX_LENGTH
-} from '../../constants';
+} from '../constants';
 
 import { Form, Input, Button, notification } from 'antd';
 const FormItem = Form.Item;
