@@ -1,4 +1,4 @@
-package com.example.WiVaServer.generalapi.payload;
+package com.example.WiVaServer.general.payload;
 
 public class ApiResponse {
     private Boolean success;

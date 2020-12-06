@@ -1,4 +1,4 @@
-package com.example.WiVaServer.generalapi.exception;
+package com.example.WiVaServer.general.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

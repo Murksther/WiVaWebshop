@@ -1,4 +1,4 @@
-package com.example.WiVaServer.generalapi.config;
+package com.example.WiVaServer.general.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

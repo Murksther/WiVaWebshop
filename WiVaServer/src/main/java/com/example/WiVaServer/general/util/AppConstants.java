@@ -1,4 +1,4 @@
-package com.example.WiVaServer.product.util;
+package com.example.WiVaServer.general.util;
 
 public interface AppConstants {
     String DEFAULT_PAGE_NUMBER = "0";

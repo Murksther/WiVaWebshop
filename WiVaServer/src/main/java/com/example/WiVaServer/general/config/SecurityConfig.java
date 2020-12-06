@@ -1,4 +1,4 @@
-package com.example.WiVaServer.generalapi.config;
+package com.example.WiVaServer.general.config;
 
 import com.example.WiVaServer.user.security.CustomUserDetailsService;
 import com.example.WiVaServer.user.security.JwtAuthenticationEntryPoint;

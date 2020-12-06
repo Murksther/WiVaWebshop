@@ -1,29 +1,38 @@
 import React, { Component } from 'react';
-import { getUserProfile } from '../../util/APIUtils';
-import { Avatar } from 'antd';
-import { getAvatarColor } from '../../util/Colors';
-import { formatDate } from '../../util/Helpers';
-import LoadingIndicator  from '../../common/LoadingIndicator';
+import {getCurrentUser, getUserProfile} from '../util/APIUtils';
+import {Avatar} from 'antd';
+import { getAvatarColor } from '../util/Colors';
+import { formatDate } from '../util/Helpers';
+import LoadingIndicator  from '../common/LoadingIndicator';
 import './Profile.css';
-import NotFound from '../../common/NotFound';
-import ServerError from '../../common/ServerError';
+import NotFound from '../common/NotFound';
+import ServerError from '../common/ServerError';
+import Address from "./Address";
+
 
 class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
             user: null,
-            isLoading: false
+            isLoading: false,
+            streetName:  '',
+            houseNumber: {
+                text: ''
+            },
+            suffix: '',
+            postalCode: {
+                text: ''
+            },
+            city: ''
         }
-        this.loadUserProfile = this.loadUserProfile.bind(this);
     }
-
-    loadUserProfile(username) {
+    loadUserProfile = (username) => {
         this.setState({
             isLoading: true
         });
 
-        getUserProfile(username)
+        getCurrentUser(username)
             .then(response => {
                 this.setState({
                     user: response,
@@ -53,6 +62,10 @@ class Profile extends Component {
         if(this.props.match.params.username !== nextProps.match.params.username) {
             this.loadUserProfile(nextProps.match.params.username);
         }
+    }
+
+    setLoading = (value) => {
+        this.setState({isLoading: value})
     }
 
     render() {
@@ -87,6 +100,9 @@ class Profile extends Component {
                                     </div>
                                 </div>
                             </div>
+                            <Address
+                                user={this.state.user}
+                                handleLoading={this.setLoading}/>
                         </div>
                     ): null
                 }
