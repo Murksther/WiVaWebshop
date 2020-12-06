@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {getCurrentUser, getUserProfile} from '../util/APIUtils';
+import {getCurrentUser} from '../util/APIUtils';
 import {Avatar} from 'antd';
 import { getAvatarColor } from '../util/Colors';
 import { formatDate } from '../util/Helpers';
@@ -27,12 +27,12 @@ class Profile extends Component {
             city: ''
         }
     }
-    loadUserProfile = (username) => {
+    loadUserProfile = () => {
         this.setState({
             isLoading: true
         });
 
-        getCurrentUser(username)
+        getCurrentUser()
             .then(response => {
                 this.setState({
                     user: response,
@@ -101,7 +101,7 @@ class Profile extends Component {
                                 </div>
                             </div>
                             <Address
-                                user={this.state.user}
+                                user={this.state.user} address={this.props.address}
                                 handleLoading={this.setLoading}/>
                         </div>
                     ): null

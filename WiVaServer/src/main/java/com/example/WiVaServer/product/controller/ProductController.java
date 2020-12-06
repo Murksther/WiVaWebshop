@@ -1,12 +1,12 @@
 package com.example.WiVaServer.product.controller;
 
-import com.example.WiVaServer.generalapi.payload.ApiResponse;
+import com.example.WiVaServer.general.payload.ApiResponse;
 import com.example.WiVaServer.product.model.Product;
 import com.example.WiVaServer.product.payload.PagedResponse;
 import com.example.WiVaServer.product.payload.ProductRequest;
 import com.example.WiVaServer.product.payload.ProductResponse;
 import com.example.WiVaServer.product.service.ProductService;
-import com.example.WiVaServer.product.util.AppConstants;
+import com.example.WiVaServer.general.util.AppConstants;
 import com.example.WiVaServer.user.security.CurrentUser;
 import com.example.WiVaServer.user.security.UserPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,8 @@ import java.net.URI;
 @RequestMapping("/api/products")
 public class ProductController {
 
-    @Autowired private ProductService productService;
+    @Autowired
+    private ProductService productService;
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")

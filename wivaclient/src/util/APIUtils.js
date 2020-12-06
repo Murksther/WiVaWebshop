@@ -1,4 +1,4 @@
-import {API_BASE_URL, ACCESS_TOKEN, PRODUCT_LIST_SIZE} from '../constants';
+import {API_BASE_URL, ACCESS_TOKEN, PRODUCT_LIST_SIZE, POSTCODE_API_KEY} from '../constants';
 
 const request = (options) => {
 
@@ -66,6 +66,18 @@ export function getCurrentUser() {
     });
 }
 
+export function getCurrentUserAddress() {
+    if(!localStorage.getItem(ACCESS_TOKEN)) {
+        return Promise.reject("No access token set.");
+    }
+
+    return request({
+        url: API_BASE_URL + "/user/me/address",
+        method: 'GET'
+    });
+}
+
+// Wordt momenteel niet actief gebruikt wel handig voor later zodat de admin profielen kan inzien
 export function getUserProfile(username) {
     return request({
         url: API_BASE_URL + "/users/" + username,
@@ -89,5 +101,24 @@ export function getAllProducts(page, size) {
         url: API_BASE_URL + "/products?page=" + page + "&size=" + size,
         method: 'GET'
     });
+}
+export function saveAddress(addressData) {
+    return request({
+        url: API_BASE_URL + "/user/me/address",
+        method: 'POST',
+        body: JSON.stringify(addressData)
+    });
+}
+
+export function getAddressAPI(postalcode, housenumber){
+    const url = 'https://postcode.tech/api/v1/postcode?postcode='+ postalcode +'&number='+ housenumber;
+    const headers = new Headers({'Authorization': 'Bearer '+ POSTCODE_API_KEY});
+    const myRequest = new Request(url, {
+        method: 'GET',
+        headers: headers,
+        mode: 'cors',
+        cache: 'default',
+      });
+    return fetch(myRequest);
 }
 
