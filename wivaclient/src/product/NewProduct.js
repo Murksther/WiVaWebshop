@@ -158,7 +158,6 @@ class NewProduct extends Component {
         event.preventDefault();
         this.setState(state => ({...state, loading: true})); //TO-DO kijken waarom state niet wordt geupdate...
 
-        console.log(this.state.loading);
         const productData = {
             name: this.state.productName.text,
             description: this.state.description.text,

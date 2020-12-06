@@ -25,6 +25,7 @@ public class ModelMapper {
     }
     public static AddressResponse mapAddressToAddressRespone(Address address) {
         AddressResponse addressResponse = new AddressResponse();
+        addressResponse.setId(address.getId());
         addressResponse.setStreetName(address.getStreetName());
         addressResponse.setHouseNumber(address.getHouseNumber());
         addressResponse.setSuffix(address.getSuffix());

@@ -1,14 +1,14 @@
 package com.example.WiVaServer.product.service;
 
-import com.example.WiVaServer.generalapi.exception.BadRequestException;
-import com.example.WiVaServer.generalapi.exception.ResourceNotFoundException;
+import com.example.WiVaServer.general.exception.BadRequestException;
+import com.example.WiVaServer.general.exception.ResourceNotFoundException;
 import com.example.WiVaServer.product.model.Product;
 import com.example.WiVaServer.product.payload.PagedResponse;
 import com.example.WiVaServer.product.payload.ProductRequest;
 import com.example.WiVaServer.product.payload.ProductResponse;
 import com.example.WiVaServer.product.repository.ProductRepository;
-import com.example.WiVaServer.product.util.AppConstants;
-import com.example.WiVaServer.product.util.ModelMapper;
+import com.example.WiVaServer.general.util.AppConstants;
+import com.example.WiVaServer.general.util.ModelMapper;
 import com.example.WiVaServer.user.security.UserPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -23,6 +23,7 @@ import java.util.List;
 
 @Service
 public class ProductService {
+
     @Autowired private ProductRepository productRepository;
 
     public Product createProduct(ProductRequest productRequest){

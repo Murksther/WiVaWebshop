@@ -1,0 +1,22 @@
+.address-container {
+    max-width: 520px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+.set-address-form-button {
+    width: 100%;
+}
+
+.set-address-form-button[disabled], .set-address-form-button[disabled]:hover, .set-address-form-button[disabled]:focus {
+    opacity: 0.6;
+    color: #fff;
+    background-color: #1890ff;
+    border-color: #1890ff;
+}
+.address-postalcode-column{
+    min-width: 90px;
+}
+
+.address-housenumber-column, .address-suffix-column{
+    min-width: 80px;
+}

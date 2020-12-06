@@ -1,13 +1,24 @@
 package com.example.WiVaServer.user.payload;
 
+import org.springframework.security.core.GrantedAuthority;
+
 import java.time.Instant;
+import java.util.Collection;
 
 public class UserProfile {
     private Long id;
     private String username;
     private String name;
     private Instant joinedAt;
+    private boolean isAdmin;
 
+    public UserProfile(Long id, String username, String name, Instant joinedAt, Collection<? extends GrantedAuthority> authorities) {
+        this.id = id;
+        this.username = username;
+        this.name = name;
+        this.joinedAt = joinedAt;
+        this.isAdmin = isAdmin(authorities);
+    }
     public UserProfile(Long id, String username, String name, Instant joinedAt) {
         this.id = id;
         this.username = username;
@@ -45,5 +56,16 @@ public class UserProfile {
 
     public void setJoinedAt(Instant joinedAt) {
         this.joinedAt = joinedAt;
+    }
+
+    public boolean getIsAdmin() {return isAdmin;}
+
+    private static boolean isAdmin(Collection authorities){
+        for (Object authority: authorities) {
+            if (authority.toString() == "ROLE_ADMIN"){
+                return true;
+            }
+        }
+        return false;
     }
 }

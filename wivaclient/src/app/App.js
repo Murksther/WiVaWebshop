@@ -6,12 +6,12 @@ import {
     Switch
 } from 'react-router-dom';
 
-import { getCurrentUser} from '../util/APIUtils'
+import {getCurrentUser, getCurrentUserAddress} from '../util/APIUtils'
 import { ACCESS_TOKEN} from "../constants";
 
-import Login from "../user/login/Login";
-import Signup from "../user/signup/Signup";
-import Profile from "../user/profile/Profile";
+import Login from "../user/Login";
+import Signup from "../user/Signup";
+import Profile from "../user/Profile";
 import AppHeader from '../common/AppHeader';
 import NotFound from '../common/NotFound';
 import LoadingIndicator from '../common/LoadingIndicator';
@@ -29,6 +29,13 @@ class App extends Component{
         super(props);
         this.state = {
             currentUser: null,
+            userAddress: {
+                streetName: '',
+                houseNumber: '',
+                suffix: '',
+                postalCode: '',
+                city: ''
+            },
             isAuthenticated: false,
             isLoading: false,
             shoppingCart: {
@@ -56,8 +63,18 @@ class App extends Component{
                 this.setState({
                     currentUser: response,
                     isAuthenticated: true,
-                    isLoading: false
                 });
+                getCurrentUserAddress()
+                    .then(response => {
+                        this.setState({
+                            userAddress: response,
+                            isLoading: false
+                        });
+                    }).catch(error => {
+                    this.setState({
+                        isLoading: false
+                    });
+                })
             }).catch(error => {
             this.setState({
                 isLoading: false
@@ -70,7 +87,7 @@ class App extends Component{
     }
 
     handleOpenProfile = () => {
-        this.props.history.push(`/users/${this.state.currentUser.username}`);
+        this.props.history.push(`/user/me`);
     }
 
     handleLogout(redirectTo="/", notificationType="success", description="Je bent succesvol uitgelogd.") {
@@ -173,8 +190,9 @@ class App extends Component{
                             <Route path="/login"
                                 render={(props) => <Login onLogin={this.handleLogin} {...props} />}/>
                             <Route path="/signup" component={Signup}/>
-                            <Route path="/users/:username"
-                                   render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props} />}/>
+                            <Route path="/user/me"
+                                   render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser}
+                                                               address={this.state.userAddress}{...props} />}/>
                             <PrivateRoute authenticated={this.state.isAuthenticated}
                                           isAdmin={this.isAdmin}
                                           handleLogout={this.handleLogout}

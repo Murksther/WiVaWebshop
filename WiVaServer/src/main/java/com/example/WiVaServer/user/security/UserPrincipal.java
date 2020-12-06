@@ -1,5 +1,6 @@
 package com.example.WiVaServer.user.security;
 
+import com.example.WiVaServer.user.model.Address;
 import com.example.WiVaServer.user.model.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
@@ -21,17 +22,20 @@ public class UserPrincipal implements UserDetails {
     @JsonIgnore
     private String email;
 
+    private Address address;
+
     @JsonIgnore
     private String password;
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserPrincipal(Long id, String name, String username, String email, String password, Collection<? extends GrantedAuthority> authorities) {
+    public UserPrincipal(Long id, String name, String username, String email, String password, Address address, Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.name = name;
         this.username = username;
         this.email = email;
         this.password = password;
+        this.address = address;
         this.authorities = authorities;
     }
 
@@ -46,6 +50,7 @@ public class UserPrincipal implements UserDetails {
                 user.getUsername(),
                 user.getEmail(),
                 user.getPassword(),
+                user.getAddress(),
                 authorities
         );
     }
@@ -61,6 +66,8 @@ public class UserPrincipal implements UserDetails {
     public String getEmail() {
         return email;
     }
+
+    public Address getAddress() {return address;}
 
     @Override
     public String getUsername() {

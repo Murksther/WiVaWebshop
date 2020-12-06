@@ -2,9 +2,6 @@ package com.example.WiVaServer.product.controller;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
-import com.example.WiVaServer.product.service.ProductService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.net.URLConnection;
@@ -12,9 +9,9 @@ import java.util.Arrays;
 import java.util.Base64;
 import java.util.Map;
 
-import static com.example.WiVaServer.product.util.AppConstants.CLOUDINARY_HOME;
-import static com.example.WiVaServer.product.util.AppConstants.CLOUDINARY_KEY;
-import static com.example.WiVaServer.product.util.AppConstants.CLOUDINARY_SECRET;
+import static com.example.WiVaServer.general.util.AppConstants.CLOUDINARY_HOME;
+import static com.example.WiVaServer.general.util.AppConstants.CLOUDINARY_KEY;
+import static com.example.WiVaServer.general.util.AppConstants.CLOUDINARY_SECRET;
 
 public class ImageController {
 

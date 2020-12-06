@@ -1,10 +1,10 @@
 package com.example.WiVaServer.user.controller;
 
-import com.example.WiVaServer.generalapi.exception.AppException;
+import com.example.WiVaServer.general.exception.AppException;
 import com.example.WiVaServer.user.model.Role;
 import com.example.WiVaServer.user.model.RoleName;
 import com.example.WiVaServer.user.model.User;
-import com.example.WiVaServer.generalapi.payload.ApiResponse;
+import com.example.WiVaServer.general.payload.ApiResponse;
 import com.example.WiVaServer.user.payload.JwtAuthenticationResponse;
 import com.example.WiVaServer.user.payload.LoginRequest;
 import com.example.WiVaServer.user.payload.SignUpRequest;

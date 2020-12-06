@@ -41,15 +41,19 @@ public class User extends DateAudit {
     @Size(max = 100)
     private String password;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_address",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "address_id"))
+    private Address address;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
-    public User() {
-
-    }
+    public User() {}
 
     public User(String name, String username, String email, String password) {
         this.name = name;
@@ -61,7 +65,6 @@ public class User extends DateAudit {
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -69,7 +72,6 @@ public class User extends DateAudit {
     public String getUsername() {
         return username;
     }
-
     public void setUsername(String username) {
         this.username = username;
     }
@@ -77,7 +79,6 @@ public class User extends DateAudit {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -85,7 +86,6 @@ public class User extends DateAudit {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -93,15 +93,16 @@ public class User extends DateAudit {
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
 
+    public Address getAddress() {return address;}
+    public void setAddress(Address address) {this.address = address;}
+
     public Set<Role> getRoles() {
         return roles;
     }
-
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
