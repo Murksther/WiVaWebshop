@@ -43,7 +43,7 @@ public class UserController {
     public UserProfile getCurrentUser(@CurrentUser UserPrincipal currentUser) {
         User user = userRepository.findByUsername(currentUser.getUsername())
                 .orElseThrow(() -> new ResourceNotFoundException("User", "username", currentUser.getUsername()));
-        UserProfile userProfile = new UserProfile(user.getId(), user.getUsername(), user.getName(),
+        UserProfile userProfile = new UserProfile(user.getId(), user.getUsername(), user.getName(),  user.getEmail(),
                 user.getCreatedAt(), currentUser.getAuthorities());
         return userProfile;
     }
@@ -88,7 +88,7 @@ public class UserController {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new ResourceNotFoundException("User", "username", username));
 
-        UserProfile userProfile = new UserProfile(user.getId(), user.getUsername(), user.getName(), user.getCreatedAt());
+        UserProfile userProfile = new UserProfile(user.getId(), user.getUsername(), user.getName(), user.getEmail(), user.getCreatedAt());
 
         return userProfile;
     }

@@ -4,41 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8730f17b-506b-4d88-a5d2-6065f4ba6ebb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/user/model/Address.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/user/payload/AddressRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/user/payload/AddressResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/user/repository/AddressRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/user/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../wivaclient/src/user/Address.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../wivaclient/src/user/Address.js" afterDir="false" />
+    <list default="true" id="8730f17b-506b-4d88-a5d2-6065f4ba6ebb" name="Default Changelist" comment="Added the possibility to place an order.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/general/exception/NotAcceptableException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/controller/OrderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/model/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/model/OrderedProduct.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/payload/OrderRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/payload/OrderedProductSummary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/repository/OrderRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/service/OrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/generalapi/config/AuditingConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/general/config/AuditingConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/generalapi/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/general/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/generalapi/config/WebMvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/general/config/WebMvcConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/generalapi/exception/AppException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/general/exception/AppException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/generalapi/exception/BadRequestException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/general/exception/BadRequestException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/generalapi/exception/ResourceNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/general/exception/ResourceNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/generalapi/payload/ApiResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/general/payload/ApiResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/controller/ImageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/controller/ImageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/util/AppConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/general/util/AppConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/util/ModelMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/general/util/ModelMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/user/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/user/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/general/util/AppConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/general/util/AppConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/repository/ProductRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/user/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/user/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/user/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/user/payload/UserProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/user/payload/UserProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/user/payload/UserSummary.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/user/security/UserPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WiVaServer/user/security/UserPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wivaclient/.idea/shelf/Uncommitted_changes_before_Checkout_at_25-11-2020_16_17__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/.idea/shelf/Uncommitted_changes_before_Checkout_at_25-11-2020_16_17__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wivaclient/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wivaclient/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wivaclient/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../wivaclient/src/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/app/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wivaclient/src/product/NewProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/product/NewProduct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wivaclient/src/user/login/Login.css" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/user/Login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wivaclient/src/user/login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/user/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wivaclient/src/user/profile/Profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/user/Profile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wivaclient/src/user/profile/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/user/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wivaclient/src/user/signup/Signup.css" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/user/Signup.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wivaclient/src/user/signup/Signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/user/Signup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wivaclient/src/constants/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/constants/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wivaclient/src/product/ProductList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/product/ProductList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wivaclient/src/shoppingcart/ProductSummary.css" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/shoppingcart/ProductSummary.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wivaclient/src/shoppingcart/ProductSummary.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/shoppingcart/ProductSummary.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wivaclient/src/shoppingcart/ShoppingCart.css" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/shoppingcart/ShoppingCart.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wivaclient/src/shoppingcart/ShoppingCart.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/shoppingcart/ShoppingCart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../wivaclient/src/util/APIUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/util/APIUtils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +65,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="$USER_HOME$/.m2/wrapper/dists/apache-maven-3.6.2-bin/795eh28tki48bv3l67maojf0ra/apache-maven-3.6.2" />
+        <option name="mavenHome" value="C:\Users\Markv\.m2\wrapper\dists\apache-maven-3.6.2-bin\795eh28tki48bv3l67maojf0ra\apache-maven-3.6.2" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -110,22 +100,10 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.31504425" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.language.Kotlin" />
   </component>
   <component name="RunManager" selected="Spring Boot.WiVaServerApplication">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="mvnw" type="ShConfigurationType" temporary="true">
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
       <option name="SCRIPT_PATH" value="$PROJECT_DIR$/mvnw" />
@@ -190,6 +168,11 @@
       <workItem from="1606756002193" duration="595000" />
       <workItem from="1606906119522" duration="14437000" />
       <workItem from="1606940164508" duration="2146000" />
+      <workItem from="1607530124518" duration="1186000" />
+      <workItem from="1607624928215" duration="1927000" />
+      <workItem from="1608110408002" duration="216000" />
+      <workItem from="1608110663878" duration="21300000" />
+      <workItem from="1608399666108" duration="12725000" />
     </task>
     <task id="LOCAL-00001" summary="Added User Role, and Dependencies used in the future">
       <created>1576104646696</created>
@@ -270,7 +253,8 @@
     <MESSAGE value="Now the Server also sends a boolean that tells if the user is an admin or not. The client will use this info so now only the admin can add products" />
     <MESSAGE value="Committing new package.json files" />
     <MESSAGE value="Removed the package.json files because added by mistake." />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed the package.json files because added by mistake." />
+    <MESSAGE value="Added the possibility to place an order." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the possibility to place an order." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -279,6 +263,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/example/WiVaServer/user/service/UserService.java</url>
           <line>15</line>
           <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/service/OrderService.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -299,5 +288,9 @@
         <watch expression="uploadResult" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

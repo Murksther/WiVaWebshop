@@ -14,6 +14,6 @@ export const PASSWORD_MAX_LENGTH = 20;
 
 export const PRODUCT_NAME_MAX_LENGTH = 50;
 
-export const PRODUCT_LIST_SIZE = 30;
+export const PRODUCT_LIST_SIZE = 10;
 
 export const POSTCODE_API_KEY = 'fd571634-b8a7-4da6-9ea4-faa183e420ef'

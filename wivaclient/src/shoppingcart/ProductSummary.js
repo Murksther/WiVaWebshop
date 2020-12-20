@@ -15,12 +15,10 @@ class Product extends Component {
 
         return (
             <Row>
-                <Col span ={8}>
-                    <div className="image-container">
-                       <Image className="image" key={this.props.product.id + '-' + 0} src={this.props.product.images[0]} height={70} width={70} />
-                    </div>
+                <Col span ={4} className="image-container">
+                   <Image className="image" key={this.props.product.id + '-' + 0} src={this.props.product.images[0]} height={70} width={70} />
                 </Col>
-                <Col span={16}>
+                <Col span={20}>
                     <div className="title-container">
                         {this.props.product.name}
                     </div>
@@ -30,7 +28,7 @@ class Product extends Component {
                                 Prijs: {new Intl.NumberFormat('nl-NL', { style: 'currency', currency: 'EUR' }).format(this.props.product.price)}
                             </div>
                         </Col>
-                        <Col span={4}>
+                        <Col span={8}>
                             <Select
                                 name="amountOfUnits"
                                 onChange={this.changeAmountInCart}
@@ -43,7 +41,7 @@ class Product extends Component {
                                 }
                             </Select> &nbsp;stuks
                         </Col>
-                        <Col span={6}>
+                        <Col span={10}>
                             <div className="total-price-container">
                                 Totaal prijs: {new Intl.NumberFormat('nl-NL', { style: 'currency', currency: 'EUR' }).format(totalPrice)}
                             </div>

@@ -1,5 +1,6 @@
 
 .image-container{
+    max-width: 80px;
     height: 80px;
 }
 .image{
@@ -18,5 +19,4 @@
 }
 .total-price-container{
     float: right;
-    margin-right: 20px;
 }

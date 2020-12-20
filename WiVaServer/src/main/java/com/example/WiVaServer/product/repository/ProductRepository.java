@@ -19,4 +19,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Query("SELECT product FROM Product product WHERE product.availableUnits > 0")
     Page<Product> findAvailableProducts(Pageable pageable);
+
+    List<Product> findByIdIn(List<Long> orderedProductsIds);
 }

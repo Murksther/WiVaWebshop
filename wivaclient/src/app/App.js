@@ -185,8 +185,11 @@ class App extends Component{
                                        />}/>
                             <Route path="/ShoppingCart"
                                    render={(props) =>
-                                       <ShoppingCart shoppingCart={this.state.shoppingCart}
-                                                     handleChangeAmountInCart={this.setAmountInCart}/>}/>
+                                       <ShoppingCart
+                                            currentUser={this.state.currentUser}
+                                            shoppingCart={this.state.shoppingCart}
+                                            address={this.state.userAddress}
+                                            handleChangeAmountInCart={this.setAmountInCart}/>}/>
                             <Route path="/login"
                                 render={(props) => <Login onLogin={this.handleLogin} {...props} />}/>
                             <Route path="/signup" component={Signup}/>
