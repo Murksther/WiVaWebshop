@@ -8,10 +8,6 @@ import java.util.*;
 
 public class OrderRequest {
 
-    @NotNull
-    @Min(0)
-    private double deliveryCost;
-
     @NotBlank
     private String typeOfTransfer;
 
@@ -22,9 +18,6 @@ public class OrderRequest {
     @Size(min = 1)
     @Valid
     private List<OrderedProductSummary> orderedProducts;
-
-    public double getDeliveryCosts() { return deliveryCost; }
-    public void setDeliveryCosts(double deliveryCosts) { this.deliveryCost = deliveryCosts; }
 
     public String getTypeOfTransfer() { return typeOfTransfer; }
     public void setTypeOfTransfer(String typeOfTransfer) { this.typeOfTransfer = typeOfTransfer; }
@@ -38,7 +31,7 @@ public class OrderRequest {
     }
     public List<Integer> getOrderedProductsIds() {
         List<Integer> ids = new ArrayList<>();
-        orderedProducts.forEach(orderedProductSummary ->{ids.add(orderedProductSummary.getProductId());});
+        orderedProducts.forEach(orderedProductSummary -> ids.add(orderedProductSummary.getProductId()));
         return ids;
     }
 }

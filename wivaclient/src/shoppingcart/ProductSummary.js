@@ -11,7 +11,7 @@ class Product extends Component {
     }
 
     render() {
-        const totalPrice= this.props.product.price * this.props.product.amountInCart
+        const totalPrice= this.props.product.price * (this.props.product.amountInCart || this.props.product.amountOrdered);
 
         return (
             <Row>
@@ -32,7 +32,8 @@ class Product extends Component {
                             <Select
                                 name="amountOfUnits"
                                 onChange={this.changeAmountInCart}
-                                value={this.props.product.amountInCart}
+                                disabled={this.props.disabled}
+                                value={this.props.product.amountInCart || this.props.product.amountOrdered}
                                 style={{ width: 60 }} >
                                 {
                                     Array.from(Array(this.props.product.availableUnits + 1).keys()).map(i =>

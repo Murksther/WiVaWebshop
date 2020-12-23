@@ -9,7 +9,6 @@ import com.example.WiVaServer.product.payload.ProductResponse;
 import com.example.WiVaServer.product.repository.ProductRepository;
 import com.example.WiVaServer.general.util.AppConstants;
 import com.example.WiVaServer.general.util.ModelMapper;
-import com.example.WiVaServer.user.security.UserPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -37,7 +36,7 @@ public class ProductService {
 
         int i;
         for(i = 0; i <  productRequest.getLengthImageList(); i++){
-            String imageURL = null;
+            String imageURL;
             try {
                 imageURL = productRequest.getImageURL(i);
                 product.setImage(imageURL, (i+1));
@@ -50,11 +49,11 @@ public class ProductService {
         return productRepository.save(product);
     }
 
-    public ProductResponse getProductById(int productId, UserPrincipal currentUser) {
+    public ProductResponse getProductById(int productId) {
         Product product = productRepository.findById(productId).orElseThrow(
                 () -> new ResourceNotFoundException("Product", "id", productId));
 
-        return ModelMapper.mapProductToProductReponse(product);
+        return ModelMapper.mapProductToProductResponse(product);
     }
 
     public PagedResponse<ProductResponse> getAllProducts(int page, int size) {
@@ -72,9 +71,7 @@ public class ProductService {
         // Map Products to ProductResponses
         List<Integer> productIds = products.map(Product::getId).getContent();
 
-        List<ProductResponse> productResponses = products.map(product -> {
-            return ModelMapper.mapProductToProductReponse(product);
-        }).getContent();
+        List<ProductResponse> productResponses = products.map(ModelMapper::mapProductToProductResponse).getContent();
 
         return new PagedResponse<>(productResponses, products.getNumber(),
                 products.getSize(), products.getTotalElements(), products.getTotalPages(), products.isLast());
@@ -94,9 +91,7 @@ public class ProductService {
         // Map Products to ProductResponses
         List<Integer> productIds = products.map(Product::getId).getContent();
 
-        List<ProductResponse> productResponses = products.map(product -> {
-            return ModelMapper.mapProductToProductReponse(product);
-        }).getContent();
+        List<ProductResponse> productResponses = products.map(ModelMapper::mapProductToProductResponse).getContent();
 
         return new PagedResponse<>(productResponses, products.getNumber(),
                 products.getSize(), products.getTotalElements(), products.getTotalPages(), products.isLast());

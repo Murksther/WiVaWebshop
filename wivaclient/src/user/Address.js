@@ -13,23 +13,26 @@ class Address extends Component {
             streetName: this.props.address.streetName,
             houseNumber: {
                 input: this.props.address.houseNumber,
+                ...this.validateHouseNumber(this.props.address.houseNumber, true)
             },
             suffix: this.props.address.suffix,
             postalCode: {
                 input: this.props.address.postalCode,
+                ...this.validatePostalCode(this.props.address.postalCode, true)
             },
             city: this.props.address.city
         }
     }
+
     handlePostalCodeChange = (event) => {
         const value = event.target.value.toUpperCase();
         this.setState(()=>({
             postalCode: {
                 input: value,
-                ...this.validatePostalCode(value)
+                ...this.validatePostalCode(value, false)
             }
         }), () => {
-            if (this.state.postalCode.validateStatus === 'success' && this.state.houseNumber.validateStatus !== 'error'){
+            if (this.state.postalCode.validateStatus === 'success' && this.state.houseNumber.validateStatus === 'success'){
                 this.fillAddress();
             }
         })
@@ -40,10 +43,10 @@ class Address extends Component {
         this.setState(()=>({
             houseNumber: {
                 input: value,
-                ...this.validateHouseNumber(value)
+                ...this.validateHouseNumber(value, false),
             }
         }), () => {
-            if (this.state.houseNumber.validateStatus === 'success' && this.state.postalCode.validateStatus !== 'error'){
+            if (this.state.houseNumber.validateStatus === 'success' && this.state.postalCode.validateStatus === 'success'){
                 this.fillAddress();
             }
         })
@@ -55,7 +58,11 @@ class Address extends Component {
             suffix: value,
         }), () => {this.validateAddress()});
     }
-    validateHouseNumber(value){
+    validateHouseNumber(value, initialCheck){
+        if(initialCheck){
+            if (value === null)
+                return {validateStatus: 'error'}
+        }
         if(isNaN(value)){
             return{
                 validateStatus: 'error',
@@ -76,7 +83,11 @@ class Address extends Component {
         else {return {validateStatus: 'success'}
         }
     }
-    validatePostalCode(value){
+    validatePostalCode(value, initialCheck){
+        if(initialCheck){
+            if (value === null)
+                return {validateStatus: 'error'}
+        }
         const postalCodeNr = value.slice(0, 4);
         const postalCodeLt = value.slice(-2);
         if(isNaN(postalCodeNr)){
@@ -189,6 +200,7 @@ class Address extends Component {
                     message: 'WiVa Webshop',
                     description: 'Je nieuwe adres is gekoppeld. Lekker shoppen nu!'
                 });
+                this.props.reloadAddress();
             }).catch(error => {
             if(error.status === 401) {
                 this.props.handleLogout('/login', 'error', 'Je bent uitgelogd. Log a.u.b. opnieuw in.');

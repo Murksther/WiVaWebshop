@@ -101,7 +101,9 @@ class Profile extends Component {
                                 </div>
                             </div>
                             <Address
-                                user={this.state.user} address={this.props.address}
+                                user={this.state.user}
+                                address={this.props.address}
+                                reloadAddress={this.props.reloadAddress}
                                 handleLoading={this.setLoading}/>
                         </div>
                     ): null

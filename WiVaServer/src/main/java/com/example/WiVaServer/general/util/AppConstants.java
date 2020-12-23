@@ -11,4 +11,5 @@ public interface AppConstants {
     String CLOUDINARY_SECRET = "C28fyaUu33thfRVkO6dSqT6HWWA";
 
     String MOLLIE_KEY = "test_MM24r4dfFcnNufjxS4vvP5CdqyjJrT";
+    String MOLLIE_BASE_URL = "https://api.mollie.com/v2/payments/";
 }

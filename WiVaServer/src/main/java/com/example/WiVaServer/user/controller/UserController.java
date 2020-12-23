@@ -15,13 +15,12 @@ import com.example.WiVaServer.user.security.CurrentUser;
 import com.example.WiVaServer.general.util.ModelMapper;
 
 import com.example.WiVaServer.user.service.UserService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 
 @RestController
@@ -37,15 +36,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    private static final Logger logger = (Logger) LoggerFactory.getLogger(UserController.class);
-
     @GetMapping("/user/me")
     public UserProfile getCurrentUser(@CurrentUser UserPrincipal currentUser) {
         User user = userRepository.findByUsername(currentUser.getUsername())
                 .orElseThrow(() -> new ResourceNotFoundException("User", "username", currentUser.getUsername()));
-        UserProfile userProfile = new UserProfile(user.getId(), user.getUsername(), user.getName(),  user.getEmail(),
+        return new UserProfile(user.getId(), user.getUsername(), user.getName(),  user.getEmail(),
                 user.getCreatedAt(), currentUser.getAuthorities());
-        return userProfile;
     }
 
     @PostMapping("/user/me/address")
@@ -55,21 +51,20 @@ public class UserController {
 
         Address address = addressRepository.findByPostalCodeAndHouseNumberAndSuffix(addressRequest.getPostalCode(),
                 addressRequest.getHouseNumber(), addressRequest.getSuffix())
-                .orElse(userService.createAddress(addressRequest));
-
+                .orElseGet(() -> userService.createAddress(addressRequest));
         user.setAddress(address);
+
         userRepository.save(user);
         return new ApiResponse(true, "Address successfully added");
     }
 
     @GetMapping("/user/me/address")
-    public <Option>AddressResponse getCurrentUserAddress(@CurrentUser UserPrincipal currentUser) {
+    public AddressResponse getCurrentUserAddress(@CurrentUser UserPrincipal currentUser) {
         User user = userRepository.findByUsername(currentUser.getUsername())
                 .orElseThrow(() -> new ResourceNotFoundException("User", "username", currentUser.getUsername()));
         Address address = user.getAddress();
         if (address != null) {
-            AddressResponse addressResponse = ModelMapper.mapAddressToAddressRespone(address);
-            return addressResponse;
+            return ModelMapper.mapAddressToAddressResponse(address);
         }
         else{
             throw new ResourceNotFoundException("Address", "username", user.getUsername());
@@ -88,8 +83,6 @@ public class UserController {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new ResourceNotFoundException("User", "username", username));
 
-        UserProfile userProfile = new UserProfile(user.getId(), user.getUsername(), user.getName(), user.getEmail(), user.getCreatedAt());
-
-        return userProfile;
+        return new UserProfile(user.getId(), user.getUsername(), user.getName(), user.getEmail(), user.getCreatedAt());
     }
 }

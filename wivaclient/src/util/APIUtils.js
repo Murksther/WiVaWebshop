@@ -130,3 +130,10 @@ export function placeOrder(orderData) {
     });
 }
 
+export function getOrder(orderId){
+    return request({
+        url: API_BASE_URL + "/orders?orderId=" +orderId,
+        method: 'GET'
+    });
+}
+

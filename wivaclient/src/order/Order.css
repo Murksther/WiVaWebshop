@@ -1,0 +1,24 @@
+.no-order-found {
+    font-size: 20px;
+    text-align: center;
+    padding: 20px;
+}
+
+.order-overview{
+    max-width: 520px;
+    margin: 20px auto 0;
+}
+
+.address-summary {
+    margin-top: 25px;
+}
+
+.order-product-costs, .order-delivery-costs, .order-total-amount{
+    text-align: right;
+    font-size: 15px;
+}
+.order-total-amount{
+    font-weight: bold;
+    border-top: 1px solid #000000;
+    float: right;
+}

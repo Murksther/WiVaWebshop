@@ -50,9 +50,8 @@ class ShoppingCart extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         const orderData = {
-            deliveryCost: this.state.delivery ? (50): 0,
-            typeOfTransfer: this.state.delivery ? ("DELIVERY"): "PICKUP",
-            address: this.props.currentUser.address,
+            typeOfTransfer: this.state.delivery ? "DELIVERY" : "PICKUP",
+            address: this.props.address,
             orderedProductSummary: this.props.shoppingCart.products.map(product => {
                 return {
                     productId: product.id,
@@ -61,11 +60,10 @@ class ShoppingCart extends Component {
             }),
             pollLength: this.state.pollLength
         };
-
+        console.log(JSON.stringify(orderData))
         placeOrder(orderData)
             .then(response => {
-                console.log(response);
-                this.props.history.push("/");
+                window.location.replace(response.message);
             }).catch(error => {
             if(error.status === 401) {
                 this.props.handleLogout('/login', 'error', 'You have been logged out. Please login create poll.');
@@ -84,6 +82,7 @@ class ShoppingCart extends Component {
             productViews.push(<ProductSummary
                 key={product.id}
                 product={product}
+                disabled={false}
                 handleChangeAmountInCart={this.props.handleChangeAmountInCart}/>)
         });
 
