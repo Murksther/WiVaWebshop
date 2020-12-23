@@ -74,7 +74,7 @@ class ProductList extends Component {
         }
     }
 
-    handleLoadMore() {
+    handleLoadMore = () => {
         this.loadProductList(this.state.page + 1);
     }
 
