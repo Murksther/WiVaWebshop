@@ -14,7 +14,7 @@
     border-color: #1890ff;
 }
 .address-postalcode-column{
-    min-width: 90px;
+    min-width: 100px;
 }
 
 .address-housenumber-column, .address-suffix-column{

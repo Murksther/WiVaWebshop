@@ -1,7 +1,37 @@
+.shopping-cart {
+    max-width: 520px;
+    margin: 20px auto 0;
+}
 
-.totals-cart{
+.delivery-costs, .totals-cart{
+    text-align: right;
     font-size: 14px;
+}
+.totals-cart{
     font-weight: bold;
-    float: right;
-    margin-right: 235px;
+}
+.address-summary {
+    margin-top: 25px;
+}
+
+.address-line, .no-address-line{
+    margin-left: 10px;
+    font-size: 17px;
+}
+.no-address-line{
+    margin-top: 50px;
+}
+.delivery-switch{
+    margin-right: 5px;
+}
+.place-order-button{
+    margin: 15px 0 15px 0;
+    width: 100%;
+}
+
+.place-order-button[disabled], .place-order-button[disabled]:hover, .place-order-button[disabled]:focus {
+    opacity: 0.6;
+    color: #fff;
+    background-color: #1890ff;
+    border-color: #1890ff;
 }

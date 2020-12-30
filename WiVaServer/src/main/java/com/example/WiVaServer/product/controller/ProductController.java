@@ -7,8 +7,6 @@ import com.example.WiVaServer.product.payload.ProductRequest;
 import com.example.WiVaServer.product.payload.ProductResponse;
 import com.example.WiVaServer.product.service.ProductService;
 import com.example.WiVaServer.general.util.AppConstants;
-import com.example.WiVaServer.user.security.CurrentUser;
-import com.example.WiVaServer.user.security.UserPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -45,9 +43,8 @@ public class ProductController {
     }
 
     @GetMapping("/{productId}")
-    public ProductResponse getProductById(@CurrentUser UserPrincipal currentUser,
-                                          @PathVariable int productId) {
-        return productService.getProductById(productId, currentUser);
+    public ProductResponse getProductById(@PathVariable int productId) {
+        return productService.getProductById(productId);
     }
 }
 

@@ -122,3 +122,18 @@ export function getAddressAPI(postalcode, housenumber){
     return fetch(myRequest);
 }
 
+export function placeOrder(orderData) {
+    return request({
+        url: API_BASE_URL + "/orders",
+        method: 'POST',
+        body: JSON.stringify(orderData)
+    });
+}
+
+export function getOrder(orderId){
+    return request({
+        url: API_BASE_URL + "/orders?orderId=" +orderId,
+        method: 'GET'
+    });
+}
+

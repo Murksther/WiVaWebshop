@@ -19,13 +19,20 @@ export function formatDateTime(dateTimeString) {
     const date = new Date(dateTimeString);
 
     const monthNames = [
-        "Jan", "Feb", "Mar", "Apr",
-        "May", "Jun", "Jul", "Aug",
-        "Sep", "Oct", "Nov", "Dec"
+        "januari", "februari", "maart", "april",
+        "mei", "juni", "juli", "augustus",
+        "september", "oktober", "november", "december"
     ];
 
     const monthIndex = date.getMonth();
     const year = date.getFullYear();
 
-    return date.getDate() + ' ' + monthNames[monthIndex] + ' ' + year + ' - ' + date.getHours() + ':' + date.getMinutes();
-}  
+    return date.getDate() + ' ' + monthNames[monthIndex] + ' ' + year + ' - ' + formatTime(date.getHours()) + ':' + formatTime(date.getMinutes());
+}
+
+function formatTime(number){
+    if (number < 10){
+        return "0" + number;
+    }
+    else return number;
+}
