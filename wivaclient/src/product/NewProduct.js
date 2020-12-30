@@ -156,7 +156,7 @@ class NewProduct extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.setState(state => ({...state, loading: true})); //TO-DO kijken waarom state niet wordt geupdate...
+        this.setState(state => ({...state, loading: true})); //TODO kijken waarom state niet wordt geupdate...
 
         const productData = {
             name: this.state.productName.text,

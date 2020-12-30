@@ -29,21 +29,21 @@ class Product extends Component {
                     </div>
                 </Col>
                 <Col span={16} className="product-information-column">
-                    <div className="product-question">
+                    <div className="product-name">
                         {this.props.product.name}
                     </div>
-                    <div className="product-question">
+                    <div className="product-description">
                         Omschrijving:
                         {this.props.product.description.split('\n').map(str => <div key={(this.props.product.id + "-" +str)} >{str}</div>)}
                     </div>
-                    <div className="product-question">
+                    <div className="product-usedMaterial">
                         Gebruikt materiaal:
                         {this.props.product.usedMaterial.split('\n').map(str => <div key={(this.props.product.id + "-" +str)}>{str}</div>)}
                     </div>
-                    <div className="product-question">
+                    <div className="product-price">
                         Prijs: {new Intl.NumberFormat('nl-NL', { style: 'currency', currency: 'EUR' }).format(this.props.product.price)}
                     </div>
-                    <div className="product-question">
+                    <div className="product-units">
                         Aantal beschikbaar: {amountAvailable}
                     </div>
                     <div>

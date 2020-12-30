@@ -11,11 +11,16 @@
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
 }
 
-.product-question {
-    font-weight: 500;
+.product-name{
     font-size: 21px;
+}
+.product-name, .product-description, .product-usedMaterial, .product-price, .product-units{
+    font-weight: 500;
     color: rgba(0, 0, 0, 0.85);
     margin-bottom: 10px;
+}
+.product-description, .product-usedMaterial, .product-price, .product-units{
+    font-size: 18px;
 }
 
 .product-image-container{
@@ -29,8 +34,13 @@
 }
 
 @media (max-width: 768px) {
-    .product-question {
+    .product-name {
         font-size: 18px;
     }
+    .product-description, .product-usedMaterial, .product-price, .product-units{
+        font-size: 16px;
+    }
 }
+
+
 
