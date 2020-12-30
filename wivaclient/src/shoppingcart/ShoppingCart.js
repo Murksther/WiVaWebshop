@@ -60,7 +60,6 @@ class ShoppingCart extends Component {
             }),
             pollLength: this.state.pollLength
         };
-        console.log(JSON.stringify(orderData))
         placeOrder(orderData)
             .then(response => {
                 window.location.replace(response.message);

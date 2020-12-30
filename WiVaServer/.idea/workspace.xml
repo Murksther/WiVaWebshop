@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8730f17b-506b-4d88-a5d2-6065f4ba6ebb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wivaclient/src/order/Order.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/order/Order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wivaclient/src/shoppingcart/ShoppingCart.js" beforeDir="false" afterPath="$PROJECT_DIR$/../wivaclient/src/shoppingcart/ShoppingCart.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,14 +248,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/controller/ImageController.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/payload/ProductRequest.java</url>
           <line>39</line>
           <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/WiVaServer/product/controller/OrderController.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

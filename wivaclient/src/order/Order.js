@@ -59,10 +59,9 @@ class Order extends Component {
                             <div className="delivery-info"> {
                                 this.state.order.typeOfTransfer === "DELIVERY" ? (
                                     <div className="order-delivered">
-                                        De bestelling wordt verzonden naar:
+                                        De bestelling wordt verzonden naar: <br/>
                                         {this.state.order.customerName} <br/>
-                                        {this.state.order.address.streetName} {this.state.order.address.houseNumber}{this.state.order.address.suffix}
-                                        <br/>
+                                        {this.state.order.address.streetName} {this.state.order.address.houseNumber}{this.state.order.address.suffix} <br/>
                                         {this.state.order.address.postalCode} {this.state.order.address.city}
                                     </div>
                                 ) : <div className="order-picked-up">
