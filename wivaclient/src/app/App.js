@@ -105,7 +105,18 @@ class App extends Component{
 
         this.setState({
             currentUser: null,
-            isAuthenticated: false
+            isAuthenticated: false,
+            userAddress: {
+                streetName: '',
+                houseNumber: '',
+                suffix: '',
+                postalCode: '',
+                city: ''
+            },
+            shoppingCart: {
+                totalAmountInCart: 0,
+                products: []
+            }
         });
 
         this.props.history.push(redirectTo);
