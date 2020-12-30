@@ -43,14 +43,6 @@ class AppHeader extends Component {
                         <HomeOutlined/>
                     </Link>
                 </Menu.Item>,
-                <Menu.Item className="menuItem" key="/ShoppingCart">
-                    <Link to={cartLink}>
-                        <ShoppingCartOutlined/>
-                        <div className="cartInfo">
-                            {this.props.totalInCart}
-                        </div>
-                    </Link>
-                </Menu.Item>,
                 <Menu.Item key="/profile" className="profile-menu">
                     <ProfileDropdownMenu
                         currentUser={this.props.currentUser}
@@ -89,6 +81,14 @@ class AppHeader extends Component {
                         selectedKeys={[this.props.location.pathname]}
                         style={{ lineHeight: '64px' }} >
                         {menuItems}
+                        <Menu.Item className="menuItem" key="/ShoppingCart">
+                            <Link to={cartLink}>
+                                <ShoppingCartOutlined/>
+                                <div className="cartInfo">
+                                    {this.props.totalInCart}
+                                </div>
+                            </Link>
+                        </Menu.Item>
                     </Menu>
                 </div>
             </Header>

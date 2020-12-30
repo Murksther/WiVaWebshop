@@ -22,3 +22,8 @@
     border-top: 1px solid #000000;
     float: right;
 }
+.not-authenticated{
+    font-size: 15px;
+    text-align: center;
+    padding: 20px;
+}

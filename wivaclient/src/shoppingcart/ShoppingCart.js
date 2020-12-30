@@ -40,6 +40,7 @@ class ShoppingCart extends Component {
         }
     }
     isOrderInvalid = () => {
+        if (!this.props.isAuthenticated){return true}
         if (this.state.delivery){
             if (this.props.address.houseNumber === "" || this.props.address.postalCode === ""){
                 return true
@@ -108,31 +109,40 @@ class ShoppingCart extends Component {
                             currency: 'EUR'
                         }).format(this.state.valueInCart + this.state.deliveryCost)}
                         </div>
-                        {this.state.delivery ? (
-                            <div className="delivery-info"> {
-                                this.props.address.houseNumber !== "" && this.props.address.postalCode !== "" ? (
-                                    <div className="address-summary">
-                                        <h2>Leveringsadres: </h2>
-                                        <div className="address-line">
-                                            {this.props.currentUser.name} <br/>
-                                            {this.props.address.streetName} {this.props.address.houseNumber}{this.props.address.suffix}
-                                            <br/>
-                                            {this.props.address.postalCode} {this.props.address.city}
-                                        </div>
-                                    </div>
-                                ) :
-                                <div className="no-address-line">
-                                    We hebben helaas geen adres van je. <br/>
-                                    Vul deze aan in je profiel of kies ervoor om het product gezellig bij ons op te halen.
-                                </div>}
+                        {this.props.isAuthenticated ? (
+                                <div>
+                                    {this.state.delivery ? (
+                                            <div className="delivery-info"> {
+                                                this.props.address.houseNumber !== "" && this.props.address.postalCode !== "" ? (
+                                                        <div className="address-summary">
+                                                            <h2>Leveringsadres: </h2>
+                                                            <div className="address-line">
+                                                                {this.props.currentUser.name} <br/>
+                                                                {this.props.address.streetName} {this.props.address.houseNumber}{this.props.address.suffix}
+                                                                <br/>
+                                                                {this.props.address.postalCode} {this.props.address.city}
+                                                            </div>
+                                                        </div>
+                                                    ) :
+                                                    <div className="no-address-line">
+                                                        We hebben helaas geen adres van je. <br/>
+                                                        Vul deze aan in je profiel of kies ervoor om het product gezellig bij
+                                                        ons op te halen.
+                                                    </div>}
+                                            </div>
+                                        ) :
+                                        <div className="address-summary">
+                                            <h2>Contactgegevens voor afhaalafspraak: </h2>
+                                            <div className="address-line">
+                                                E-mail: {this.props.currentUser.email}
+                                            </div>
+                                        </div>}
+                                </div>
+                            ) :
+                            <div className="not-authenticated">
+                                <span> Je moet eerst inloggen voordat je een bestelling kan plaatsen </span>
                             </div>
-                        ) :
-                        <div className="address-summary">
-                            <h2>Contactgegevens voor afhaalafspraak: </h2>
-                            <div className="address-line">
-                                E-mail: {this.props.currentUser.email}
-                            </div>
-                        </div>}
+                        }
                         <Button type="primary"
                                 htmlType="submit"
                                 size="large"

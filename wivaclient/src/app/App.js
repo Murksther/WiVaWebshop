@@ -208,6 +208,7 @@ class App extends Component{
                                    render={(props) =>
                                        <ShoppingCart
                                             currentUser={this.state.currentUser}
+                                            isAuthenticated={this.state.isAuthenticated}
                                             shoppingCart={this.state.shoppingCart}
                                             address={this.state.userAddress}
                                             handleChangeAmountInCart={this.setAmountInCart}/>}/>
